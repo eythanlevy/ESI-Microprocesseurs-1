@@ -1,0 +1,643 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+a {
+   outline: 0;
+}
+.dealply_container {
+	position:relative;
+	z-index:881;
+	width: 510px;
+	border: none;
+	height: 230px;
+	font-family: arial;
+}
+ .getDealText{
+	display:none;
+}
+
+
+ #getDealImage{
+	display:none;
+}
+
+
+.offers_wrapper {
+	margin: 0 ;
+	width: 0;
+	width:100%;
+}
+.offers_title {
+	font-size: 16px;
+	color: #222;
+	max-height: 40px;
+	line-height: 18px;
+	max-width: 235px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.offers_title.dark_title {
+	background-color: #333;
+	color: #fff;
+	font-size: 13px;
+	width: 215px;
+	padding: 4px;
+	margin-bottom: 0px;
+}
+ .powered_by {
+	font-size: 11px;
+	position: absolute;
+	bottom: -1px;
+	right: 26px;
+}
+.powered_by {
+	color: #bcbcbc;
+	text-transform:none;
+	font-weight:normal;
+}
+.powered_by a {
+	color: #aaa;
+	text-decoration: none;
+}
+.powered_by a:active {
+	color: #bcbcbc;
+	text-decoration: none;
+}
+.prod_desc {
+	margin-top: 0px;
+	font-size: 11px;
+	height: 27px;
+	overflow: hidden;
+	color: #000;
+	text-decoration:none;
+}
+ .rightDiv.withPayments .prod_desc {
+	line-height: 12px;
+	font-size: 11px;
+	height: 24px;
+}
+ .offer_block:hover .prod_desc {
+	text-decoration:underline;
+}
+.price {
+	color: #F60;
+	font-weight: bold;
+	height: 23px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-size: 21px;
+}
+ .payments{
+	font-size: 12px;
+	color: #F60;
+	line-height: 12px;
+	max-height: 24px;
+	overflow: hidden;
+}
+ .logo  {
+	border: none;
+	display: block;
+	margin-top: 3px;
+	height: 18px;
+	max-width: 113px;
+}
+ .logo.withDiscount,  .rightDiv.withPayments .logo {
+	margin-top: 3px;
+	height:17px;
+}
+ .retailerTitle  {
+	margin-top: 13px;
+	font-weight: bold;
+	color: #262626;
+	font-size: 15px;
+	display:none;
+}
+ .retailerTitle.show  {
+	display:block;
+}
+ .retailerTitle.withDiscount{
+	margin-top: 3px;
+}
+.powered_by  span {
+	cursor: pointer;
+}
+#keySearchWordDealPly{
+	font-weight:bold;
+}
+.leftDiv{
+	clear:both;
+	float:left;
+	width:105px;
+}
+ .rightDiv{
+	width: 115px;
+	float: left;
+}
+ #dealplyWidgetControlPanel {
+	background-repeat: no-repeat;
+	position: absolute;
+	top: -2px;
+	right: 0;
+	width: 105px;
+	height: 30px;
+	cursor: pointer;
+	padding-right: 24px;
+	padding-bottom: 95px;
+}
+ .sideControls div{
+	position: absolute;
+	cursor:pointer;
+	width: 12px;
+	height:12px;
+	top: 4px;
+	right: 3px;
+}
+ #dealplyCloseButton{
+	background-image:url(/resources/eden/green/strip/closeBtn.png);
+}
+ .sideControls:hover #dealplyCloseButton{
+	background-image:url(/resources/eden/green/strip/closeBtnH.png);
+}
+ #dealplyFaqButton{
+	background-image:url(/resources/eden/green/strip/faqBtn.png);
+	right: 4px;
+}
+ .sideControls:hover #dealplyFaqButton{
+	background-image:url(/resources/eden/green/strip/faqBtnH.png);
+}
+ #dealplySettingButton{
+	background-image:url(/resources/eden/green/strip/sspndBtn.png);
+}
+ .sideControls:hover #dealplySettingButton,  #dealplySettings.sideControls.open #dealplySettingButton{
+	background-image:url(/resources/eden/green/strip/sspndBtnH.png);
+}
+#dealplyMinimizeButton{
+	background-image: url('/resources/eden/green/ngen/x.png');
+	width: 11px;
+	height: 11px;
+	cursor: pointer;
+	position: absolute;
+	bottom: 34px;
+	right: 16px;
+	background-repeat: no-repeat;
+}
+#dealplyPoweredByButton{
+	position: absolute;
+	bottom: 4px;
+	right: 11px;
+	width: 18px;
+	cursor:pointer;
+}
+ #dealplySettings.sideControls.open{
+	border-color:#85b114;
+	border-left: 1px solid #fff;
+	z-index: 11;
+}
+ #dealplySuspend{
+	text-transform: none;
+	color: black;
+	font-weight: normal;
+	position: absolute;
+	display: none;
+	font-family:arial;
+	font-size:10px;
+	z-index:10;
+	width: 188px;
+	background: #fff;
+	border: 1px solid #85b114;
+	top: 28px;
+	height: 92px;
+	right: 24px;
+}
+#dealplySettingHoverIcon{
+	position: absolute;
+	top: -5px;
+	right: 36px;
+	width: 11px;
+	height: 11px;
+	cursor: pointer;
+}
+#dealplySuspandForTextPanel{
+	font-size: 10px;
+	float:left;
+	font-family:arial;
+	margin-right:0px;
+	margin-left:7px;
+	margin-top: 2px;
+}
+#suspend{
+	border: 1px solid #B4B4B4;
+	font-size: 10px;
+	width:52px;
+	margin-left:0px;
+	margin-top: 4px;	
+}
+#suspend option{
+	text-indent:3px;
+}
+#dealplySuspendButton{
+	background-image: url('/resources/eden/green/ngen/7605_save_1.png');
+	width: 30px;
+	height: 14px;
+	background-size:30px 14px;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	color: white;
+	font-weight: bold;
+	line-height: 14px;
+	text-indent: 8px;
+	position:absolute;
+	right: 14px;
+	bottom: 12px;
+}
+#dealplySuspendButton:active{
+	background-image: url('/resources/eden/green/ngen/7605_save_2.png');
+	width: 30px;
+	height: 14px;
+	background-size:30px 14px;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	color: white;
+	font-weight: bold;
+	line-height: 14px;
+	text-indent: 8px;
+	position: absolute;
+	right: 14px;
+	bottom: 12px;
+}
+#dealplyPoweredByAlternativeWrapper a{
+	position: absolute;
+	color: #C4C6C9;
+	font-size: 10px;
+	font-family: arial;
+	bottom: 0px;
+}
+#dealplySuspendForEverMessage{
+	font-family: arial;
+	width:170px;
+	background-image:url('/resources/eden/green/ngen/7605_SUSPEND_no_icon_03.png');
+	background-repeat:repeat-y;
+	margin-top: -21px;
+	margin-bottom: 16px;
+	display:none;
+}
+#dealplySuspendfooter{
+	background-image:url('/resources/eden/green/ngen/7605_SUSPEND_no_icon_04.png');
+	width:170px;
+	height:6px;
+	margin-top: -21px;
+	background-repeat:no-repeat;
+}
+
+ .sideControls{
+	border: 1px solid #aaa;
+	border-left: none;
+	background-color: #fff;
+	width: 17px;
+	height: 17px;
+	padding-top: 2px;
+	position: absolute;
+	right: 6px;
+	top: 86px;
+	z-index: 9;
+}
+ .sideControls:hover{
+	border-color:#85b114;
+}
+ .sideControls#dealplyCloseAndOpenTray{
+	top:38px;
+}
+ .sideControls#dealplyFaqLink{
+	top:62px;
+}
+
+#blueLabel{
+	background-image:url('/resources/eden/green/ngen/7605_caftor.png');
+	width:84px;
+	height:20px;
+	background-repeat:no-repeat;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+ #transpDiv{
+	width:100%; height:100%;background-color: #fff; opacity:0.8; filter: alpha(opacity=80);z-index: 80;   top: 0;bottom: 0;right: 0;position: fixed;
+}
+ .starsWrap{
+	margin-left: 4px;
+	height: 12px;
+	float:left;
+	position:relative;
+}
+ .star {
+	background-image:url(/resources/eden/green/starS.png);
+	width: 11px;
+	height: 11px;
+	float: left;
+	display:none;
+}
+ .star_half {
+	background-image:url(/resources/eden/green/starSH.png);
+}
+.numOfRaters{
+	position: absolute;
+	text-align: center;
+	background-color: white;
+	min-width: 75px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 9px;
+	color: #888;
+	top: -26px;
+	left: 4px;
+	margin-right: 67px;
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display:none;
+	z-index: 1;
+	white-space: nowrap;
+	padding: 0 2px;
+}
+ .offer_block:hover .numOfRaters{
+	display:block;
+}
+ .arrowOut {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 8px solid #aaa;
+	position: absolute;
+	bottom: -9px;
+	left: 12px;
+}
+ .arrowIn {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 8px solid #fff;
+	position: absolute;
+	bottom: 1px;
+	left: -6px;
+}
+ .clear{
+	clear:both;
+	height:0;
+}
+ .getDealText{
+	display:none;
+}
+ #greenAreaClickable{
+	position: absolute; right: 0;
+	width: 134px;
+	height: 79px;
+	top:7px;
+	cursor:pointer;
+}
+ #dpShopNoStar{
+	width: 88px; font-size: 11px; color:#000000;  padding-top:45px; font-weight: bold;
+}
+#getCouponBadge{
+	background-image: url('/resources/eden/green/ngen/getCoup.png');
+	width: 43px;
+	height: 43px;
+	position: absolute;
+	right: -8px;
+	top: -15px;
+	display: none;
+}
+
+ .feedImage{
+	
+	position:absolute;
+	top:5px;
+	right:5px;
+	
+
+}
+
+/********/
+
+		
+ #dpShopNoStar {
+	padding-top: 27px;
+}
+ .rightDiv.withPayments .price {
+	font-size: 18px;
+	height: 20px;
+}
+ .priceBefore {
+	font-size: 11px;
+	color:#515151;
+	height:4px;
+	text-decoration: line-through;
+}
+ .offers_ul a {
+	color:#000;
+	text-decoration:none;
+}
+ .offers_ul li{
+	width: auto;
+}
+ #dpShopNoStar {
+	font-size: 12px;
+}
+ .star {
+	background-image: url(/resources/eden/green/strip/revStar.png);
+	width:8px;
+	height:8px;
+	margin-right:1px;
+}
+ .star_half {
+	background-image: url(/resources/eden/green/strip/revStarHalf.png);
+}
+ .star_empty {
+	background-image: url(/resources/eden/green/strip/revStarEmpty.png);
+}
+ .ratersAmount{
+	float: left;
+	font-size: 10px;
+	line-height: 8px;
+	margin-left: 1px;
+}
+ .offer_block .dealDiscount{
+	position: absolute;
+	top: 0px;
+	left: 0;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	padding-top: 4px;
+	text-align: center;
+	font-style: italic;
+	display: none;
+	height: 20px;
+	width: 38px;
+	background: #ff4e17;
+}
+.offer_block .featuredBan{
+	display:none;
+}
+ .offer_block .featuredBan{
+	background-color: #85b114;
+	height: 17px;
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 5px;
+	text-align: center;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+ .offer_block .offerMoreData{
+	display:none;
+}
+ .offer_block:hover .offerMoreData.hasMoreData{
+	background-color: #fff;
+	width:176px;
+	position: absolute;
+	bottom: 0px;
+	right: 21px;
+	color: #353535;
+	font-size: 12px;
+	padding: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-topleft: 5px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border: 1px solid #85b114;
+	border-bottom: none;
+	display:block;
+}
+ .cliackableArea{
+	width:100%;
+	height:100%;
+	position:absolute;
+	display:block;
+	top:0px;
+	left:0;
+	opacity:0;
+	filter:alpha(opacity=0);
+	z-index:1;
+}
+ #dealplyWhatsThisLink img {
+	height: 12px;
+	width: 7px;
+}
+ #dealplyWhatsThisLink {
+	right: 25px;
+	top: -3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.offers_wrapper {
+	margin: 0;
+	width: 500px;
+}
+
+.powered_by {
+	font-size: 10px;
+	float: right;
+	color: #E5E5E5;
+	height: 15px;
+	line-height: 15px;
+	margin-top: -1px;
+}
+
+.powered_by a {
+	font-size: 10px;
+	color: #BBBBBB;
+	text-decoration: none;
+}
+
+.powered_by a:active {
+	color: #BBBBBB;
+	text-decoration: none;
+}
+
+.powered_by span {
+	font-size: 10px;
+	color: #BBBBBB;
+}
+
+.offers_ul {
+	clear: both;
+	padding: 0;
+}
+
+.offers_ul li {
+	list-style: none;
+}
+
+.offers_ul  a {
+	color: #1122CC;
+	text-decoration: none;
+}
+
+.offers_ul a:hover {
+	text-decoration: underline;
+}
+
+.offer_block {
+	margin: 0px 10px 0 0;
+	width: 221px;
+	font-family: arial;
+	position: relative;
+	height: 102px;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+	overflow: hidden;
+}
+
+.offer_block.offer_block0 {
+	border-top: 1px solid #e5e5e5;
+}
+
+.offer_block:hover {
+	-webkit-box-shadow:2px 2px 6px rgba(230, 230, 230, 0.75);
+	-moz-box-shadow:2px 2px 6px rgba(230, 230, 230, 0.75);
+	box-shadow:2px 2px 6px rgba(230, 230, 230, 0.75);
+}
+
+.prod_image {
+	max-width:93px;
+	height:79px;
+	margin:3px 3px 3px 5px;
+}
+
+.prod_desc {
+	margin-top: 2px;
+	font-size: 12px;
+	width: 101px;
+	height: 45px;
+	overflow: hidden;
+	color: #1122CC;
+	line-height: 15px;
+}
+
+#keySearchWordDealPly {
+	font-weight: bold;
+}

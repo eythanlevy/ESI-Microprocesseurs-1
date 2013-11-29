@@ -1,0 +1,834 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+a {
+   outline: 0;
+}
+.dealply_container {
+	border: none;
+	height: 135px;
+	font-family:arial;
+	position:relative;
+	z-index:881;
+}
+#addit.vert .dealply_container  {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#flach .getDealText{
+	display:none;
+}
+
+
+#flach #getDealImage{
+	display:none;
+}
+
+
+.offers_wrapper {
+	margin: 0 ;
+	width: 0;
+	width:1000px;
+}
+.offers_title {
+	font-size: 13px;
+	font-weight:bold;
+	color: #000;
+	float: left;
+	height: 13px;
+	line-height: 13px;
+}
+#flach .powered_by {
+	font-size: 11px;
+	position: absolute;
+	bottom: -4px;
+	right: 26px;
+}
+.powered_by {
+	color: #bcbcbc;
+	text-transform:none;
+	font-weight:normal;
+}
+.powered_by a {
+	color: #686868;
+	text-decoration: none;
+	cursor:pointer;
+}
+#flach .offers_ul {
+	padding-top:31px;
+	padding-left: 6px;
+}
+#flach .offers_ul li , #addit.vert .offers_ul li  {
+	position:relative;
+	list-style: none;
+	width: auto;
+}
+#flach  .offers_ul li {
+	float:left;
+}
+#flach .offers_ul  a{
+	color:#1122CC;
+	text-decoration:none;
+}
+#flach .offers_ul a:hover{
+	ttext-decoration:underline;
+}
+.offer_block {
+	font-family: arial;
+}
+#flach .offer_block{
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #aaa;
+	width: 223px;
+	height: 90px;
+	padding-top: 2px;
+	position:relative;
+	border-left:none;
+	border-right: none;
+}
+#flach .offer_block .sideBorder{
+	height: 80px;
+	border-right: 1px solid #aaa;
+	z-index: 0;
+	position: absolute;
+	top: 6px;
+	right: 0px;
+}
+#flach .offers_ul .offer_block.last_offer{
+	border-right: 1px solid #aaa;
+}
+#flach .offers_ul .offer_block.last_offer .sideBorder{
+	display:none;
+}
+#flach .prod_image {
+	max-width: 80px;
+	height: 78px;
+	margin: 4px 3px 1px 3px;
+}
+.prod_image {
+	margin-bottom:3px;
+	margin-right:3px;
+}
+#flach .prod_desc_wrap {
+	height: 37px;
+	overflow: hidden;
+}
+#flach .prod_desc {
+	font-size: 15px;
+	height: 37px;
+	overflow: hidden;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+	display: table;
+	position: static;
+}
+#flach .prod_desc_inner{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	position: static;
+	top: 50%;
+}
+#flach .prod_desc a{
+	position: relative;
+	top: -50%;
+}
+#flach .rightDiv.withPayments .prod_desc {
+	line-height: 12px;
+	font-size: 11px;
+	height: 24px;
+}
+.price {
+	margin-top: 0px;
+	color: #05a6f1;
+	font-weight: bold;
+	font-size: 18px;
+}
+#flach .price{
+	font-size: 18px;
+	position: absolute;
+	bottom: 3px;
+	left: 0;
+}
+#flach .payments{
+	font-size: 12px;
+	color: #F60;
+	line-height: 12px;
+	max-height: 24px;
+	overflow: hidden;
+}
+#flach .logo  {
+	border: none;
+	display:block;
+	height:23px;
+	max-width: 120px;
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+}
+#flach .logo.withDiscount, #flach .rightDiv.withPayments .logo {
+	height:17px;
+}
+#flach .retailerTitle  {
+	font-weight: bold;
+	color: #262626;
+	font-size: 15px;
+	position: absolute;
+	bottom: 2px;
+	display:none;
+}
+#flach .retailerTitle.show  {
+	display:block;
+}
+.powered_by  span {
+	cursor: pointer;
+}
+#keySearchWordDealPly{
+	font-weight:bold;
+}
+.leftDiv{
+	clear:both;
+	float:left;
+}
+#flach .rightDiv{
+	max-width: 128px;
+	float: left;
+	position:relative;
+	height:100%;
+}
+/*#flach .offers_ul li:first-child {
+	width: 48px;
+	padding-left: 7px;
+}*/
+#pb {
+	font-family:arial;
+}
+#flach #dealplyWidgetControlPanel {
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 3px;
+	right: 0;
+	width: 91px;
+	height: 29px;
+	cursor: pointer;
+	padding:0 3px 0 0;
+}
+#flach .sideControls div{
+	position: absolute;
+	cursor:pointer;
+	width: 10px;
+	height:10px;
+	top: 5px;
+	right: 5px;
+}
+#flach #dealplyCloseButton{
+	background-image:url(/resources/eden/green/hotels/closeBtn.png);
+}
+#flach .sideControls:hover #dealplyCloseButton{
+	background-image:url(/resources/eden/green/hotels/closeBtnH.png);
+}
+#flach #dealplyFaqButton{
+	background-image:url(/resources/eden/green/hotels/faqBtn.png);
+	width: 7px;
+	height:12px;
+	right: 6px;
+}
+#flach .sideControls:hover #dealplyFaqButton{
+	background-image:url(/resources/eden/green/hotels/faqBtnH.png);
+}
+#flach #dealplySettingButton{
+	background-image:url(/resources/eden/green/hotels/sspndBtn.png);
+	width: 17px;
+	height:20px;
+	top: 0px;
+	right: 1px;
+}
+#flach .sideControls:hover #dealplySettingButton, #flach #dealplySettings.sideControls.open #dealplySettingButton{
+	background-image:url(/resources/eden/green/hotels/sspndBtnH.png);
+}
+#dealplyMinimizeButton{
+	background-image: url('/resources/eden/green/ngen/x.png');
+	width: 11px;
+	height: 11px;
+	cursor: pointer;
+	position: absolute;
+	bottom: 34px;
+	right: 16px;
+	background-repeat: no-repeat;
+}
+#dealplyPoweredByButton{
+	position: absolute;
+	bottom: 4px;
+	right: 11px;
+	width: 18px;
+	cursor:pointer;
+}
+#flach #dealplySettings.sideControls.open{
+	border-color:#05a6f1;
+	z-index: 11;
+	border-left: 1px solid #05a6f1;
+	border-right: 1px solid #fff;
+}
+#flach #dealplySuspend{
+	text-transform: none;
+	color: black;
+	font-weight: normal;
+	position: absolute;
+	display: none;
+	font-family:arial;
+	font-size:10px;
+	z-index:10;
+	width: 188px;
+	background: #fff;
+	border: 1px solid #05a6f1;
+	top: 31px;
+	height: 92px;
+	left: 24px;	
+}
+#dealplySettingHoverIcon{
+	position: absolute;
+	top: -5px;
+	right: 36px;
+	width: 11px;
+	height: 11px;
+	cursor: pointer;
+}
+#dealplyRelatedOfferTextPanel{
+	position: absolute;
+	right: 10px;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 22px;
+	text-transform: uppercase;
+	font-family: arial;
+	color: white;
+	width: 124px;
+	top: 25px;
+}
+#dealplySuspendsElementsWrapper{
+	width: 183px;
+	height: 36px;
+	margin-top: 9px;
+	margin-left: 1px;
+}
+#dealplySuspandForTextPanel{
+	font-size: 10px;
+	float:left;
+	font-family:arial;
+	margin-right:0px;
+	margin-left:7px;
+	margin-top: 2px;
+}
+#suspend{
+	border: 1px solid #B4B4B4;
+	font-size: 10px;
+	width:52px;
+	margin-left:0px;
+	margin-top: 4px;	
+}
+#suspend option{
+	text-indent:3px;
+}
+#dealplyPoweredByAlternativeWrapper a{
+	position: absolute;
+	color: #C4C6C9;
+	font-size: 10px;
+	font-family: arial;
+	bottom: 0px;
+}
+#dealplySuspendForEverMessage{
+	font-family: arial;
+	width:170px;
+	background-image:url('/resources/eden/green/ngen/7605_SUSPEND_no_icon_03.png');
+	background-repeat:repeat-y;
+	margin-top: -21px;
+	margin-bottom: 16px;
+	display:none;
+}
+#dealplySuspendfooter{
+	background-image:url('/resources/eden/green/ngen/7605_SUSPEND_no_icon_04.png');
+	width:170px;
+	height:6px;
+	margin-top: -21px;
+	background-repeat:no-repeat;
+}
+#flach #sideControlsWrap{
+	width: 20px;
+	height: 100%;
+	position: absolute;
+	left: 4px;
+	z-index: 15;
+	padding-top: 40px;
+}
+#flach .sideControls{
+	border: 1px solid #aaa;
+	border-right: 0;
+	background-color: #fff;
+	width: 19px;
+	height: 18px;
+	padding-top: 2px;
+	position: relative;
+	float: left;
+	margin-top: 5px;
+}
+#flach .sideControls:hover{
+	border-color:#05a6f1;
+}
+#blueLabel{
+	background-image:url('/resources/eden/green/ngen/7605_caftor.png');
+	width:84px;
+	height:20px;
+	background-repeat:no-repeat;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+ #transpDiv{
+	width:100%; height:100%;background-color: #fff; opacity:0.85; filter: alpha(opacity=85);z-index: 80;   top: 0;bottom: 0;right: 0;position: fixed;
+}
+#flach .starsWrap{
+	margin-bottom: 1px;
+	height: 12px;
+	float:left;
+	position:relative;
+}
+.numOfRaters{
+	position: absolute;
+	text-align: center;
+	background-color: white;
+	min-width: 75px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 9px;
+	color: #888;
+	top: -26px;
+	left: 4px;
+	margin-right: 67px;
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display:none;
+	z-index: 1;
+	white-space: nowrap;
+	padding: 0 2px;
+}
+#flach .offer_block:hover .numOfRaters{
+	display:block;
+}
+#flach .arrowOut {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 8px solid #aaa;
+	position: absolute;
+	bottom: -9px;
+	left: 12px;
+}
+#flach .arrowIn {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 8px solid #fff;
+	position: absolute;
+	bottom: 1px;
+	left: -6px;
+}
+#flach .clear{
+	clear:both;
+	height:0;
+}
+#flach .getDealText{
+	display:none;
+}
+#flach #whiteAreaForAddit{
+	display:none;
+}
+#flach #pb{
+	display:none;
+}
+#flach #closeAddit{
+	display:none;
+}
+#flach #greenAreaClickable{
+	position: absolute; right: 0;
+	width: 134px;
+	height: 79px;
+	top:7px;
+	cursor:pointer;
+}
+#flach #dpShopNoStar{
+	width: 88px; font-size: 11px; color:#000000;  padding-top:45px; font-weight: bold;
+}
+#getCouponBadge{
+	background-image: url('/resources/eden/green/ngen/getCoup.png');
+	width: 43px;
+	height: 43px;
+	position: absolute;
+	right: -8px;
+	top: -15px;
+	display: none;
+}
+
+#flach .feedImage{
+	
+	position:absolute;
+	top:5px;
+	right:5px;
+	
+
+}
+
+
+#flach #dealplyWhatsThisLink{
+	position: absolute;
+    right: 36px;
+    top: -7px;
+}
+#flach #dealplyWhatsThisLink img{
+	height: 10px; 
+	width: 6px;
+}
+
+.offers_wrapper {
+			width:100%;
+		}
+		#dealplyRelatedOfferTextPanel{
+			right: 4px;
+		}
+		#flach #dpShopNoStar {
+			padding-top: 27px;
+		}
+		#flach .dealply_container.jplang #dpShopNoStar {
+			padding-top: 46px;
+		}
+		#flach .rightDiv.withPayments .price {
+			font-size: 18px;
+			height: 20px;
+		}
+		#flach .priceBefore {
+			font-size: 11px;
+			color:#515151;
+			height:4px;
+			text-decoration: line-through;
+		}
+		#flach .offers_ul a {
+			color:#000;
+			text-decoration:none;
+		}
+		#flach .offers_ul .offer_block.offer_block0 {
+			-webkit-border-top-left-radius: 5px;
+			-moz-border-radius-topleft: 5px;
+			border-top-left-radius: 5px;
+			border-left: 1px solid #aaa;
+		}
+		#flach #dpShopNoStar {
+			font-size: 12px;
+		}
+		#flach .offers_ul li:hover .offerBlockShadow {
+			background-image: url(/resources/eden/green/strip/boxShade.png);
+			width: 225px;
+			height: 10px;
+			margin-left: -3px;
+		}
+		#flach .leftDiv {
+			width: 88px;
+		}
+		#flach .star {
+			background-image: url(/resources/eden/green/hotels/star.png);
+			width:10px;
+			height:9px;
+			float: left;
+			margin-right:2px;
+		}
+		#flach .star.star_half {
+			background-image: url(/resources/eden/green/hotels/revStarHalf.png);
+			
+		}
+		#flach .star_empty {
+			background-image: url(/resources/eden/green/hotels/starEmpty.png);
+		}
+		#flach .ratersAmount{
+			float: left;
+			font-size: 10px;
+			line-height: 8px;
+			margin-left: 1px;
+		}
+		#flach .offer_block .dealDiscount{
+			position: absolute;
+			top: 0px;
+			left: 10px;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+			padding-top: 3px;
+			text-align: center;
+			font-style: italic;
+			display:none;
+			height: 23px;
+			width: 55px;
+			border-radius: 0 0 65px 65px;
+			-moz-border-radius: 0 0 90px 90px;
+			-webkit-border-radius: 0 0 90px 90px;
+			background: #ff4e17;
+		}
+		.offer_block .featuredBan{
+			display:none;
+		}
+		#flach .offer_block .featuredBan{
+			background-color: #85b114;
+			height: 17px;
+			position: absolute;
+			top: 0px;
+			right: 10px;
+			color: #fff;
+			font-size: 12px;
+			font-weight: bold;
+			padding: 0px 5px;
+			text-align: center;
+			-webkit-border-bottom-right-radius: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-moz-border-radius-bottomright: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+		#flach .offer_block .offerMoreData{
+			display:none;
+		}
+		#flach .offer_block:hover .offerMoreData.hasMoreData{
+			background-color: #fff;
+			width:176px;
+			position: absolute;
+			bottom: 0px;
+			right: 21px;
+			color: #353535;
+			font-size: 12px;
+			padding: 5px;
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-top-left-radius: 5px;
+			-moz-border-radius-topright: 5px;
+			-moz-border-radius-topleft: 5px;
+			border-top-right-radius: 5px;
+			border-top-left-radius: 5px;
+			border: 1px solid #85b114;
+			border-bottom: none;
+			display:block;
+		}
+		#flach #dealplySuspend #suspend{
+			border:none;
+			margin: 0 0 10px 8px;
+			width: 180px;
+			font-size: 11px;
+		}
+		#flach #dealplySuspend #suspend > div{
+			height:16px;
+		}
+		#flach #dealplySuspend #dealplySuspendsElementsWrapper {
+			height:auto;
+			margin-top: 1px;
+			color: #333;
+		}
+		#flach #dealplySuspend #dealplySuspandForTextPanel {
+			float:none;
+			font-size: 12px;
+			height: 18px;
+			overflow: hidden;
+		}
+		#flach #dealplySuspend #dealplySettingHoverIcon {
+			top: 1px;
+			right: 3px;
+			width: 12px;
+			height: 12px;
+		}
+		#flach #dealplySuspend #closeSuspendWidget{
+			position:relative;
+			bottom:3px;
+			left:10px;
+			text-decoration:underline;
+			cursor:pointer;
+			color: #6a6a6a;
+			font-size: 10px;
+		}
+		#flach #dealplySuspend #dealplySuspendButton {
+			font-size: 12px;
+			font-weight: normal;
+			bottom: 4px;
+			background-color: #05a6f1;
+			width:37px;
+			height:19px;
+			line-height: 20px;
+			text-align: center;
+			text-indent: 0;
+			right: 10px;
+			color:#fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			position:absolute;
+			cursor:pointer;
+			font-weight: bold;
+		}
+		#flach #dealplySuspend #dpInfoButton {
+			position:absolute;
+			bottom:4px;
+			right:55px;
+			text-decoration:underline;
+			cursor:pointer;
+			color: #6a6a6a;
+			font-size: 10px;
+			display:none;
+		}
+		#flach #dealplySuspend input[type="radio"] {
+		    border: none;
+    		outline: none;
+		    display:none;
+		}
+		#flach #dealplySuspend label{
+			cursor:pointer;
+		}
+		#flach #dealplySuspend input[type="radio"] + label span {
+		    display:inline-block;
+		    width:10px;
+		    height:10px;
+		    margin:-4px 3px 0 0;
+		    vertical-align:middle;
+		    background:url('/resources/eden/green/strip/radioB.png') left top no-repeat;
+		    cursor:pointer;
+		}
+		#flach #dealplySuspend input[type="radio"]:checked + label span {
+		    background:url('/resources/eden/green/hotels/fill_blue.png') left top no-repeat;
+		}
+		#flach #dealplyRelatedOfferTextPanel{
+			diaplay:none;
+		} 
+		#flach .cliackableArea{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			filter: alpha(opacity=0);
+			z-index: 2;
+		}
+		#flach .cliackableArea.wider{
+			z-index: 1;
+			height: 124px;
+			top:-32px;
+		}
+		#flach #dealplyWhatsThisLink img {
+			height: 12px;
+			width: 7px;
+		}
+		#flach #dealplyWhatsThisLink {
+			right: 25px;
+			top: -3px;
+		}
+
+#flach .powered_by.ab_powered_by{display:none;}
+#flach.dpFreshAB .powered_by{display:none;}
+#flach.dpFreshAB .powered_by.ab_powered_by{display:block;margin-left: 18px;}
+
+#flach.dpFreshAB .powered_by {
+	font-size: 11px;
+	position: absolute;
+	left: 6px;
+	bottom: -8px;
+	color:#686868;
+}
+#flach.dpFreshAB .powered_by .powered_by_inner{
+	float:left;
+	border-left: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	padding: 1px 4px;
+	background: #fff;
+}
+#flach.dpFreshAB .powered_by a {
+	text-decoration: none;
+}
+#flach.dpFreshAB .powered_by .powered_by_link a{
+	text-decoration: underline;	
+}
+#flach .powered_by .powered_by_sep{
+	border-right: 1px solid #aaa;
+	height: 9px;
+	display: inline-block;
+	margin: 0 8px;
+}
+#flach .powered_by_trngl{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: #aaa transparent transparent transparent;
+	position: relative;
+	float: left;
+	border-width: 18px 11px 0 0;
+}
+#flach .powered_by_trngl_in{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: #fff transparent transparent transparent;
+	position: absolute;
+	top: -18px;
+	border-width: 16px 10px 0 0;
+	left: 0;
+}
+#flach .dealply_container{
+	padding-left: 18px;
+}
+#flach .powered_by {
+	display:block;
+	left:24px;
+	bottom: -6px;
+}
+#flach .powered_by .powered_by_dsgn_wrap{
+	float: left;
+	border: 1px solid #aaa;
+	padding: 1px 7px;
+	border-right: 0;	
+	background-color: #fff;
+}
+#flach .powered_by .powered_by_sep, #flach .powered_by .legalLink{
+	display:none;
+}
+#flach.dpFreshAB .powered_by .powered_by_sep, #flach.dpCmplncAB .powered_by .powered_by_sep{
+	display: inline-block;
+}
+#flach.dpFreshAB .powered_by .legalLink, #flach.dpCmplncAB .powered_by .legalLink{
+	display:inline;
+}
+
+#flach #dealplyWidgetControlPanel #hotelsBanner{
+	background-image: url(/resources/eden/green/hotels/blue_pass.png);
+	height: 40px;
+	position: absolute;
+	z-index: 1;
+	right: 91px;
+	width: 800px;
+	margin-top: 0px;
+	background-repeat: no-repeat;
+}
+#flach .hotelLocation{
+	font-size:12px;
+	margin-top: 2px;
+	overflow: hidden;
+	height: 15px;
+}
+
+#flach .offer_block.noImg .leftDiv {
+	display:none;
+}
+#flach .offer_block.noImg .rightDiv{
+	margin-left: 10px;
+	max-width: 205px;
+}

@@ -1,0 +1,540 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+a {
+	outline: 0;
+}
+
+.sideControls {
+	height: 16px;
+	width: 17px;
+	position: absolute;
+	background-repeat: no-repeat;
+	top: 0;
+}
+
+#dealplyFaqLink {
+	right: 18px;
+}
+
+#dealplyFaqButton {
+	width: 100%;
+	height: 100%;
+	background-image: url("/resources/eden/green/popeye/new/q.png");
+}
+
+#dealplyFaqButton:HOVER {
+	background-image: url("/resources/eden/green/popeye/new/q2.png");
+}
+
+#dealplySettings {
+	right: 31px;
+	background-image: url("/resources/eden/green/popeye/new/sus.png");
+}
+
+#dealplySettings:HOVER {
+	background-image: url("/resources/eden/green/popeye/new/sus2.png");
+}
+
+#dealplyCloseButton {
+	right: 1px;
+	background-image: url("/resources/eden/green/popeye/new/x.png");
+}
+
+#dealplyCloseButton:HOVER {
+	background-image: url("/resources/eden/green/popeye/new/x2.png");
+}
+
+.clickableArea {
+	width: 197px;
+	height: 134px;
+	position: absolute;
+	cursor: pointer;
+}
+
+.dealply_container {
+	border: none;
+	height: 151px;
+	font-family: arial;
+	position: relative;
+	z-index: 881;
+	margin: 5px 0 0 15px;
+	cursor: pointer;
+}
+
+.offers_ul li {
+	list-style: none;
+}
+
+.offer_block.selected .leftDiv {
+	padding-right: 4px;
+	border: 1px solid #494949;
+	border-right: none;
+	width: 55px;
+}
+
+.offer_block .leftDiv {
+	background-color: white;
+	border: 1px solid #aaaaaa;
+	height: 33px;
+	margin-bottom: 2px;
+	padding-right: 0;
+	width: 54px;
+	position: absolute;
+	top: 17px;
+	padding: 4px 0 4px 0;
+}
+
+.offer_block0 .leftDiv {
+	height: 30px;
+	top: 20px;
+}
+
+.offer_block0.selected .leftDiv {
+	height: 33px;
+	top: 17px;
+}
+
+.offer_block1 .leftDiv {
+	top: 62px
+}
+
+.offer_block2 .leftDiv {
+	top: 108px
+}
+
+.offer_block .rightDiv {
+	display: none;
+}
+
+.offer_block.selected .rightDiv {
+	background-color: white;
+	border: 1px solid #494949;
+	display: block;
+	float: right;
+	height: 132px;
+	width: 192px;
+	padding-right: 3px;
+	display: block;
+}
+
+.dpIcon {
+	height: 20px;
+	width: 23px;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: -5px;
+	left: -15px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+#dealplySuspend {
+	display: none;
+}
+
+.offer_block2 .leftDiv {
+	top: 108px
+}
+
+.offer_block .rightDiv {
+	display: none;
+}
+
+.leftDiv img.prod_image {
+	max-width: 38px;
+	max-height: 27px;
+	display: table;
+	margin: auto;
+}
+
+.leftDiv .price {
+	font: 10px arial bold;
+	width: 100%;
+	height:11px;
+	background-color: #484a49;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	padding: 0px 0 1px 0;
+}
+
+
+.offer_block.selected .leftDiv .price{
+	display: none;
+}
+
+.rightDiv img.prod_image {
+	max-height: 95px;
+	max-width: 91px;
+	margin: auto;
+	display: table;
+}
+
+
+.withDiscount .rightDiv img.prod_image {
+	max-height: 132px;
+	max-width: 91px;
+	margin: auto;
+	display: table;
+}
+
+.withDiscount.withRating .rightDiv img.prod_image {
+	max-height: 80px;
+	max-width: 91px;
+	margin: auto;
+	display: table;
+}
+
+
+#dealPlyHeader {
+	font-size: 11px;
+	height: 17px;
+	background-color: #494949;
+	color: white;
+	padding-left: 3px;
+}
+
+#header_txt {
+	padding: 2px 16px 0;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.offer_block2 .leftDiv {
+	top: 108px
+}
+
+.offer_block .rightDiv {
+	display: none;
+}
+
+.offer_block2 .leftDiv {
+	top: 108px
+}
+
+.offer_block .rightDiv {
+	display: none;
+}
+
+#dealplySuspend {
+	display: none;
+}
+
+.rightleftDiv {
+	width: 93px;
+	height: 130px;
+	overflow: hidden;
+	float: left;
+	padding: 3px;
+}
+
+.rightRightDiv {
+	width: 93px;
+	height: 130px;
+	float: right;
+	overflow: hidden;
+}
+
+.priceAndDescription {
+	float: left;
+	width: 91px;
+	margin-top: 8px;
+}
+.withDiscount  .rightRightDiv .priceAndDescription {
+	margin-top: 2px;
+}
+
+.rightRightDiv .price {
+	color: #ff6600;
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+
+.prod_desc {
+	overflow: hidden;
+	height: 47px;
+}
+
+.withDiscount  .rightRightDiv .prod_desc {
+	height: 42px;
+}
+
+.logo {
+	max-width: 90px;
+	max-height: 35px;
+	position: absolute;
+	bottom: 7px;
+	right: 7px;
+}
+
+
+.prod_desc a {
+	text-decoration: none;
+	color: #494949;
+	font-size: 12px;
+}
+
+
+
+.starsWrapContainer {
+	width: 90px;
+position: absolute;
+bottom: 6px;
+}
+
+.ratersAmount {
+    font-size: 10px;
+    text-indent: 3px;
+}
+.starsWrap {
+    margin-left: 4px;
+}
+
+.logoAndRating {
+	width: 100%;
+}
+
+.dealDiscount {
+	font: 15px arial bold;
+	width: 43px;
+	display: inline-block;
+	background-color: #ff6600;
+	margin-right: 17px;
+	margin-left: 7px;
+	margin-top: 5px;
+	color: white;
+	margin-bottom: 5px;
+}
+
+.priceBefore {
+	text-decoration: line-through;
+	font: 13px arial;
+	color: #3b3b3b;
+	margin-top: 9px;
+}
+
+.star {
+	background-image: url(/resources/eden/green/starS.png);
+	width: 9px;
+	height: 11px;
+	float: left;
+	display: none;
+}
+
+.star_half {
+	background-image: url(/resources/eden/green/starSH.png);
+}
+
+#dealplySuspend {
+	text-transform: none;
+color: #6a6a6a;
+font-weight: normal;
+position: absolute;
+display: none;
+font-family: arial;
+font-size: 10px;
+z-index: 9999999999999999999999999;
+width: 195px;
+background: #fff;
+border: 1px solid #494949;
+top: 22px;
+height: 132px;
+right: 0;
+}
+
+
+#dealplySuspend #suspend {
+	border: none;
+	margin: 7px 0 10px 8px;
+	width: 180px;
+	font-size: 13px;
+	font-family: arial;
+}
+
+#dealplySuspend #suspend>div {
+	height: 16px;
+}
+
+#dealplySuspend #dealplySuspendsElementsWrapper {
+	height: auto;
+	margin-top: 1px;
+	color: #333;
+}
+
+#dealplySuspend #dealplySuspandForTextPanel {
+	float: none;
+	font-size: 13px;
+	height: 18px;
+	font-family: arial;
+	overflow: hidden;
+	padding-left: 7px;
+	color: #6a6a6a;
+	padding-top: 3px;
+}
+
+#dealplySuspend #dealplySettingHoverIcon {
+	top: 1px;
+	right: 3px;
+	width: 12px;
+	height: 12px;
+}
+
+#dealplySuspend #closeSuspendWidget {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #6a6a6a;
+	font-size: 10px;
+}
+
+
+#dealplySuspend #dealplySuspendButton {
+	background-image: url('/resources/eden/green/popeye/new/ok.png');
+	width: 40px;
+	height: 21px;
+	background-repeat: no-repeat;
+	left: 9px;
+	position: absolute;
+	bottom: 7px;
+	cursor: pointer;
+}
+
+
+#dealplySuspend input[type="radio"] {
+	border: none;
+	outline: none;
+	display: none;
+}
+
+#dealplySuspend label {
+	cursor: pointer;
+	margin-left: 4px;
+}
+
+#dealplySuspend input[type="radio"]+label span {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: -4px 3px 0 0;
+	vertical-align: middle;
+	background: url('/resources/eden/green/strip/radioB.png') left top	no-repeat;
+	cursor: pointer;
+	margin-right: 4px;
+}
+ #dealplySuspend input[type="radio"]:checked+label span {
+	background: url('/resources/eden/green/strip/radioBSel.png') left top no-repeat;
+}
+#suspendButtons {
+	width: 100%;
+	display: block;
+	height: 50px;
+	margin-top: 28px;
+}
+ 
+.powered_by_container {
+	margin-left: 32px;
+	font-size: 11px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 700;
+}
+
+.powered_by_border {
+	font-size: 11px;
+	color: #bcbcbc;
+	text-transform: none;
+	font-weight: normal;
+	width: 0;
+	border-left: 16px solid transparent;
+	border-top: 16px solid #ababab;
+	height: 0;
+	float: left;
+}
+
+.powered_by_border_inner {
+	border-top: 16px solid white;
+	border-left: 16px solid transparent;
+	height: 0;
+	width: 0px;
+	position: absolute;
+	top: 0;
+	left: 1px;
+}
+
+.powered_by {
+	color: #aaa;
+	text-decoration: none;
+	height: 15px;
+	float: left;
+	border-bottom: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+	padding-right: 1px;
+	background-color: white;
+}
+
+.powered_by a {
+	color: #848484;
+	text-decoration: none;
+	margin: 2px;
+	font-family: arial;
+}
+
+.powered_by a:active {
+	color: #bcbcbc;
+	text-decoration: none;
+}
+
+body#green #dealPlyHeader {
+    background-color: #85b315;
+}
+
+body#green .offer_block.selected .rightDiv {
+    border: 1px solid #85b315;
+}
+body#green .offer_block.selected .leftDiv {
+    border: 1px solid #85b315;
+    border-right: none;
+}
+
+body#green #dealplySettings {
+	top: 2px;
+	right: 31px;
+	background-image: url("/resources/eden/green/popeye/new/green_sus.png");
+}
+body#green #dealplySettings:HOVER {
+	background-image: url("/resources/eden/green/popeye/new/green_sus2.png");
+	top: 3px;
+	right: 29px;
+}
+body#green #dealplyFaqLink:HOVER #dealplyFaqButton  {
+	background-image: url("/resources/eden/green/popeye/new/green_q.png");
+	background-repeat: 	no-repeat;
+}
+body#green #dealplyFaqLink:HOVER {
+right: 12px;
+top: 2px;
+}
+body#green #dealplyCloseButton:HOVER {
+background-image: url("/resources/eden/green/popeye/new/green_x.png");
+height: 10px;
+top: 4px;
+}
+
+body#green .dealDiscount {
+	background-color: #494949;
+}
+
+body#green #dealplySuspend #dealplySuspendButton {
+	background-image: url('/resources/eden/green/popeye/new/ok2.jpg');
+	cursor: pointer;
+}

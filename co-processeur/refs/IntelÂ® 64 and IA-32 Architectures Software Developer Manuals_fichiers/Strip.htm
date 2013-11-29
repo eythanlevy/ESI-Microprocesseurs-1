@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html><head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript">
+			function loadHtml(url){
+				var xmlhttp=new XMLHttpRequest();
+				xmlhttp.open("GET",url,true);
+				xmlhttp.send();
+			}
+			function preload(array) {
+				var length = array.length,
+					document = window.document,
+					body = document.body,
+					isIE = 'fileSize' in document,
+					object;
+				while (length--) {
+					if (isIE) {
+						new Image().src = array[length];
+						continue;
+					}
+					object = document.createElement('object');
+					object.data = array[length];
+					object.width = object.height = 0;
+					body.appendChild(object);
+				}
+			}
+			
+			
+			window.onload = function () {
+				preload([
+					'relatedContentStyle.css',
+					'staticCampScript.js',
+					'staticCampStyle.css',
+					'dpMSD.css',
+					'resultsSearch.css',
+					'/resources/eden/green/lib/dpEdenQuery.js',
+					'utilsNextGenAjax.js',
+					'strip.css',
+					'resultsSearch.js',
+					'opDom.js',
+					'interopInnerAjax.js',
+					'freshStrip.js',
+					'edenToastCommon.js',
+					'edenStyle.css',
+					'edenPersistencyHttpCookiesScript.js',
+					'edenMain.js',
+					'edenCommonAjax.js',
+					'JSONscript.js',
+					'coupons.js',
+					'coupons.css',
+					'base64.js',
+					'flights.css',
+					'flights.js',
+					'popeye.css',
+					'popeye.js',
+					'hotels.css',
+					'hotels.js'
+				]);
+				
+				htmlA = [
+					'staticCamp.html',
+					'PopEye.html',				
+					'Strip.html',
+					'AjaxToast.html',
+					'AjaxSquareSearch.html',
+					'AjaxSERubric.html',
+					'AjaxSearch.html',
+					'AjaxResultsSearch.html',
+					'AjaxRelatedContentPane.html',
+					'AjaxRectSearchBtm.html',
+					'AjaxRectSearch.html',
+					'AjaxRectangleSearch.html',
+					'AjaxGglStrip.html',
+					'AjaxDrkRectSearchBtm.html',
+					'AjaxDrkRectSearch.html',
+					'AjaxCoupons.html',
+					'AjaxGgl.html',
+					'AjaxFlightsPane.html',
+					'no-offers.html',
+					'checkSuspend.html',
+					'hotels.html'
+				];
+				
+				for (var i=0;i<htmlA.length;i++){
+					loadHtml(htmlA[i]);
+				}
+			};
+		</script>
+	</head>
+	<body>
+	
+
+
+
+<object data="Strip_data/hotels.js" height="0" width="0"></object><object data="Strip_data/hotels.css" height="0" width="0"></object><object data="Strip_data/popeye.js" height="0" width="0"></object><object data="Strip_data/popeye.css" height="0" width="0"></object><object data="Strip_data/flights.js" height="0" width="0"></object><object data="Strip_data/flights.css" height="0" width="0"></object><object data="Strip_data/base64.js" height="0" width="0"></object><object data="Strip_data/coupons.css" height="0" width="0"></object><object data="Strip_data/coupons.js" height="0" width="0"></object><object data="Strip_data/JSONscript.js" height="0" width="0"></object><object data="Strip_data/edenCommonAjax.js" height="0" width="0"></object><object data="Strip_data/edenMain.js" height="0" width="0"></object><object data="Strip_data/edenPersistencyHttpCookiesScript.js" height="0" width="0"></object><object data="Strip_data/edenStyle.css" height="0" width="0"></object><object data="Strip_data/edenToastCommon.js" height="0" width="0"></object><object data="Strip_data/freshStrip.js" height="0" width="0"></object><object data="Strip_data/interopInnerAjax.js" height="0" width="0"></object><object data="Strip_data/opDom.js" height="0" width="0"></object><object data="Strip_data/resultsSearch.js" height="0" width="0"></object><object data="Strip_data/strip.css" height="0" width="0"></object><object data="Strip_data/utilsNextGenAjax.js" height="0" width="0"></object><object data="Strip_data/dpEdenQuery.js" height="0" width="0"></object><object data="Strip_data/resultsSearch.css" height="0" width="0"></object><object data="Strip_data/dpMSD.css" height="0" width="0"></object><object data="Strip_data/staticCampStyle.css" height="0" width="0"></object><object data="Strip_data/staticCampScript.js" height="0" width="0"></object><object data="Strip_data/relatedContentStyle.css" height="0" width="0"></object></body></html>

@@ -1,0 +1,56 @@
+p.filter-list-title {
+	font-weight: normal !important;
+}
+
+/* INC001148886 temp fix for asset detail template title text - remove after next push 5/28ish*/
+.assetdetailtemplateD #content .content-well.has-right-rail,
+.assetdetailtemplateA #content .content-well.has-right-rail,
+.assetdetailtemplateI #content .content-well.has-right-rail{
+        margin-top:0 !important;
+}
+/* end INC001148886 */
+
+/* INC001135889*/
+.marquee-module.showcase a {
+display: block;
+}
+
+/* INC001189837 temp fix - remove after next push 5/28ish */
+.accordian-navigation .accordiannavigation h1 {
+    padding: 18px !important;
+}
+/* end INC001189837 */
+
+/* INC001215681 temp fix - remove after next push 5/28ish */
+.imagetextnuance div.nuance-text div.button span.left {
+    width: 9px; 
+}
+/* end INC001215681 */
+
+/* INC001132893 temp fix for chat feature - remove after next push 5/28ish */
+.proactivechat .prochatbox .prochatbutton {bottom:2px;margin-left:-5px;}
+.prochatbox {bottom:30px;}
+.prochatbox .prochatbutton {margin-left:45px;}
+/* end INC001132893 */
+
+/* INC001632285 temp fix for showcase spotlight modules - remove after next headerlibs update */
+#rotatingshowcase .marquee-module li h2 {
+	margin: 10px 15px 8px 15px !important;
+}
+#rotatingshowcase .marquee-module ul {
+    height: 150px!important;
+}
+#rotatingshowcase .marquee-module .image-items {
+    height: 150px!important;
+}
+#rotatingshowcase .marquee-module li a {
+	height:75px;
+	overflow:hidden;
+	display:block;
+	margin:0px auto 5px auto;
+}
+#rotatingshowcase .marquee-module li p a {
+	height: auto;
+}
+/* end INC001632285 */
+#rotatingshowcase .marquee-module ul {
