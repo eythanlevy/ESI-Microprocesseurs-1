@@ -1,0 +1,222 @@
+% === Cours de Java
+% === Version couleur pour la présentation
+
+\documentclass[14pt]{beamer}
+\usetheme{Warsaw}
+
+\usepackage{mic}
+
+\title{Microprocesseurs (MIC)}
+\subtitle{Chap. ?: Les modes d'adressage}
+\date{} 
+
+% =====================   DOCUMENT ===================++
+\begin{document}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}
+\titlepage
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adresser les données}
+% ----------------------------------------------------
+De nombreuses instructions manipulent des données
+	\begin{itemize}
+	\item transferts mémoire-regitres : \asm{MOV AX, 3}
+	\item calculs : \asm{ADD EAX, EBX}
+	\item tests : \asm{BT AX, 2}
+	\item \dots
+	\end{itemize}
+
+\medskip
+Il faut pouvoir indiquer où se trouve / où mettre chaque donnée
+
+\medskip
+C'est ce qu'on appelle les \emph{modes d'adressage}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modes de base}
+% ----------------------------------------------------
+\begin{description}
+  \item[\emph{Immédiat}] 
+	la donnée est directement dans l'instruction
+	\\ex: \asm{MOV AX,} \fbox{\asm{42}}
+  \item[\emph{Registre}] la donnée est (doit être placée) dans un registre
+	\\ex: \asm{MOV} \fbox{\asm{AX}}\asm{,} \fbox{\asm{BX}}
+  \item[\emph{Direct}] la donnée est (doit être placée) à l'adresse donnée dans l'instruction
+	\\ex: \asm{MOV AX,} \fbox{\asm{[0xB8A0]}}
+	\\ex: \asm{MOV} \fbox{\asm{[0xB8A2]}}\asm{, AX}
+\end{description}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modes de base -- Piège}
+% ----------------------------------------------------
+Attention à ne pas confondre \emph{une adresse} et \emph{ce qu'elle contient}
+\begin{Asm}
+	MOV AX, 0xB8A0      ; mode immédiat. AX reçoit la valeur 0xB8A0.
+	MOV AX, [0xB8A0]    ; mode direct. AX reçoit la valeur à l'adresse 0xB8A0.
+\end{Asm}
+\bigskip
+D'ailleurs
+\begin{Asm}
+	MOV [0xB8A0], AX    ; on met le contenu de AX à l'adresse 0xB8A0
+	MOV 0xB8A0, AX      ; Ne compile pas !!!
+\end{Asm}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modes de base -- Autre piège}
+% ----------------------------------------------------
+Un \emph{label} désigne une \emph{adresse}
+\begin{Asm}
+	MOV AX, brol      ; mode immédiat. On met dans AX l'adresse de brol.
+	MOV AX, [brol]    ; mode direct. On met dans AX la valeur à l'adresse brol.
+\end{Asm}
+\bigskip
+D'ailleurs
+\begin{Asm}
+	MOV [brol], AX    ; on met le contenu de AX à l'adresse brol
+	MOV brol, AX      ; Ne compile pas !!!
+\end{Asm}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modes de base -- Utilisation}
+% ----------------------------------------------------
+Ces trois modes permettent de traduire les instructions simples
+des langages de haut niveau.
+
+\medskip
+Par exemple
+\begin{Code}
+	b <- a + 2
+\end{Code}
+pourrait se traduire%
+\footnote{
+	\scriptsize{Valable pour des variables globales.
+	En pratique, a et b sont probablement des variables locales;
+	elles seront dès lors stockées dans une pile, ce qui modifie
+	un peu les instructions.}
+}
+\begin{Asm}
+	MOV AX, [a]   ; registre, direct
+	ADD AX, 2     ; registre, immédiat
+	MOV [b], AX   ; direct, registre
+\end{Asm}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{RISC vs CISC}
+% ----------------------------------------------------
+
+\begin{footnotesize}
+\begin{tabular}{p{3cm}p{3cm}p{3cm}}
+	& \emph{RISC} & \emph{CISC} \\\hline
+Signification & Reduced Instruction Set Computer & Complex Instruction Set Computer \\\hline
+Modes d'addressage & Peu & Beaucoup \\\hline
+%\# d'insctructions & Plus & Moins \\\hline
+Processeur & Moins complexe & Plus complexe \\\hline
+\end{tabular}
+\end{footnotesize}
+
+\bigskip
+Les architectures \emph{CISC} permettent de coder plus facilement
+des instructions de haut niveau comme
+\begin{Code}
+	maStructure.unChamp <- 1
+	tab[3] <- 2
+	tab[3].unChamp <- 3
+\end{Code}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adressage indirect (registre)}
+% ----------------------------------------------------
+
+La donnée se trouve à une adresse donnée par un registre
+
+\bigskip
+Exemple :
+\begin{Asm}
+	MOV EBX, 0xB8A0 ; BX contient l'adresse donnée
+	MOV EAX, §\textcolor{brown}{\textbf{[BX]}}§   ; on met dans AX la donnée se trouvant à l'adresse 0xB8A0
+\end{Asm}
+
+\bigskip
+Utile pour traduire les instructions manipulant les \emph{pointeurs / références}
+
+\bigskip
+Exemple : Pour traduire \code{objet1 <- objet2}, on pourrait avoir
+\begin{Asm}
+	MOV EAX, [objet2]      ; l'objet référencé par objet1
+	MOV [objet1], EAX      ; et si on ne met pas les crochets ?
+\end{Asm}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adressage indirect avec déplacement}
+% ----------------------------------------------------
+
+Adresse obtenue en ajoutant un déplacement à une adresse dans un registre
+
+\bigskip
+Exemple :
+\begin{Asm}
+	MOV AX, §\textcolor{brown}{\textbf{[EBX + 3]}}§    ; AX reçoit la donnée se trouvant à l'adresse
+	                      ; donnée par (le contenu de) EBX + 3
+\end{Asm}
+
+\bigskip
+Utile pour traduire les instructions manipulant les \emph{structures}
+
+\bigskip
+Exemple : Pour traduire \code{maStructure.unChamp <- 1}, on pourrait avoir
+\begin{Asm}
+	MOV EAX, maStructure  ; pas de crochet ici 
+	MOV [EAX + 8], 1  ; Le '8' dépend des champs précédents dans la structure 
+\end{Asm}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adressage indirect indexé}
+% ----------------------------------------------------
+
+Le déplacement est lui aussi dans un registre. On y applique un facteur multiplicatif.
+
+\bigskip
+Exemple :
+\begin{Asm}
+	MOV AX, §\textcolor{brown}{\textbf{[EBX + 3 * ECX]}}§    ; AX reçoit la donnée se trouvant à l'adresse
+	                     ; donnée par (le contenu de) EBX + 3 * (le contenu de) ECX 
+\end{Asm}
+
+\bigskip
+Utile pour traduire les instructions manipulant les \emph{tableaux}
+
+\bigskip
+Exemple : Pour traduire \code{tab[3] <- 1}, on pourrait avoir
+\begin{Asm}
+	MOV EAX, tab               
+	MOV EBX,  3 
+	MOV [EAX + 4 * EBX], 1         ; Le '4' est la taille d'une case.
+	; on comprend mieux que les tableaux commencent à 0 dans de nombreux langages
+\end{Asm}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Remarques}
+% ----------------------------------------------------
+
+Nous n'avons pas tout dit :
+\begin{itemize}
+\item Il existe encore d'autres modes d'adressages
+\item Chaque processeur dispose d'un sous-ensemble des modes possibles
+\item Chaque assembleur dispose de sa propre syntaxe pour ces modes d'adressages
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------
+\end{document}

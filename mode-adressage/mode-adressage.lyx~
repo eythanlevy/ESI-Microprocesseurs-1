@@ -1,0 +1,465 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usetheme{Warsaw}
+\usepackage{listings}
+\lstloadlanguages{[x86masm]Assembler}
+
+\lstset{
+    language=[x86masm]Assembler,
+    extendedchars=true
+}
+
+%\usepackage{listings}
+%\lstloadlanguages{[x86masm]Assembler}
+% configuration code asm
+%\lstset{language=[x86masm]Assembler}
+%\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=8pt}
+%\lstset{tabsize=2}
+%\lstset{basicstyle=\footnotesize,keywordstyle=\bfseries,frame=single,framerule=.1pt}%
+%\lstset{backgroundcolor=\color[gray]{.98}}
+
+\newcommand{\asm}[1] {\texttt{\textcolor{blue}{#1}}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Microprocesseurs (MIC)
+\end_layout
+
+\begin_layout Subtitle
+Chap.
+ ?: Les modes d'adressage
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Sommaire}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,currentsubsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Adresser les données
+\end_layout
+
+\begin_layout Itemize
+De nombreuses instructions manipulent des données
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+transferts mémoire-regitres : 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+asm{
+\end_layout
+
+\end_inset
+
+MOV AX, 3
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+calculs : 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+asm{
+\end_layout
+
+\end_inset
+
+ADD EAX, EBX
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+tests : 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+asm{
+\end_layout
+
+\end_inset
+
+BT AX, 2
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\SpecialChar \ldots{}
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Il faut pouvoir indiquer où se trouve / mettre chaque donnée
+\end_layout
+
+\begin_layout Itemize
+C'est ce qu'on appelle les 
+\series bold
+modes d'adressage
+\end_layout
+
+\begin_layout BeginFrame
+Modes de base
+\end_layout
+
+\begin_layout Description
+Immédiat la donnée est directement dans l'instruction
+\end_layout
+
+\begin_layout Description
+Registre la donnée est dans un registre
+\end_layout
+
+\begin_layout Description
+Direct la donnée est à l'adresse codée dans l'instruction
+\end_layout
+
+\begin_layout Itemize
+Exemple : Pour traduire une instruction comme
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+on peut écrire
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MOV EAX, [var1]	; registre, direct
+\end_layout
+
+\begin_layout Plain Layout
+
+ADD EAX, 1		 ; registre, immédiat
+\end_layout
+
+\begin_layout Plain Layout
+
+MOV [var2[, AX	 ; direct, registre
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Modes de base - exemples
+\end_layout
+
+\begin_layout Itemize
+Ces trois modes permettent de traduire les instructions simples
+\end_layout
+
+\begin_layout Itemize
+Ex :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a = 1;
+\end_layout
+
+\begin_layout Itemize
+b = a + 2;
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+RISC vs CISC
+\end_layout
+
+\begin_layout Itemize
+RISC : 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Peu de possibilités offertes pour adresser une donnée
+\end_layout
+
+\begin_layout Itemize
+Processeur plus simple à concevoir
+\end_layout
+
+\begin_layout Itemize
+Plus d'instructions pour réaliser une opération
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CISC : C'est l'inverse
+\end_layout
+
+\begin_layout BeginFrame
+Exemple
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{
+\end_layout
+
+\end_inset
+
+Comment traduire en assembleur l'instruction Java : 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+tab[3] = 1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+En RISC :
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Multiplier 3 (l'indice) par 4 (la taille d'une case)
+\end_layout
+
+\begin_layout Enumerate
+Ajouter l'adresse de début du tableau 
+\end_layout
+
+\begin_layout Enumerate
+Mettre 1 dans la case dont l'adresse a été obtenue à l'étape précédente
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+En CISC :
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Il existe une instruction unique qui fait le boulot.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+TEst
+\end_layout
+
+\begin_layout Standard
+Fin cadre
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document
