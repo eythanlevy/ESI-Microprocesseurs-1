@@ -72,7 +72,7 @@ D'ailleurs
 % ----------------------------------------------------
 Un \emph{label} désigne une \emph{adresse}
 \begin{Asm}
-	MOV AX, brol      ; mode immédiat. On met dans AX l'adresse de brol.
+	MOV AX, brol      ; mode immédiat. On met dans AX l'adresse brol.
 	MOV AX, [brol]    ; mode direct. On met dans AX la valeur à l'adresse brol.
 \end{Asm}
 \bigskip
@@ -165,8 +165,8 @@ Adresse obtenue en ajoutant un déplacement à une adresse dans un registre
 \bigskip
 Exemple :
 \begin{Asm}
-	MOV AX, §\textcolor{brown}{\textbf{[EBX + 3]}}§    ; AX reçoit la donnée se trouvant à l'adresse
-	                      ; donnée par (le contenu de) EBX + 3
+	MOV AX, §\textcolor{brown}{\textbf{[EBX + 4]}}§    ; AX reçoit la donnée se trouvant à l'adresse
+	                      ; donnée par (le contenu de) EBX + 4
 \end{Asm}
 
 \bigskip
