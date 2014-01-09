@@ -1,0 +1,259 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usetheme{Warsaw}
+\usepackage{listings}
+\lstloadlanguages{[x86masm]Assembler}
+
+\lstset{
+    language=[x86masm]Assembler,
+    extendedchars=true
+}
+
+%\usepackage{listings}
+%\lstloadlanguages{[x86masm]Assembler}
+% configuration code asm
+%\lstset{language=[x86masm]Assembler}
+%\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=8pt}
+%\lstset{tabsize=2}
+%\lstset{basicstyle=\footnotesize,keywordstyle=\bfseries,frame=single,framerule=.1pt}%
+%\lstset{backgroundcolor=\color[gray]{.98}}
+
+\newcommand{\asm}[1] {\texttt{\textcolor{blue}{#1}}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Microprocesseurs (MIC)
+\end_layout
+
+\begin_layout Subtitle
+Introduction
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Sommaire}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,currentsubsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Support de cours 
+\end_layout
+
+\begin_layout Itemize
+Un syllabus électronique sur poESI ; 
+\end_layout
+
+\begin_layout Itemize
+Une prise en main de GDB sur poESI ; 
+\end_layout
+
+\begin_layout Itemize
+Une description des instructions les plus importantes sur poESI.
+ 
+\end_layout
+
+\begin_layout Itemize
+Les slides sont une structure du cours et pas un contenu.
+ Il est donc indispensable de compléter les slides avec les explications
+ fournies au cours.
+\end_layout
+
+\begin_layout BeginFrame
+Laboratoires
+\end_layout
+
+\begin_layout Itemize
+12 semaines découpées en 10 TD ; 
+\end_layout
+
+\begin_layout Itemize
+Chaque TD prend 2 heures ; 
+\end_layout
+
+\begin_layout Itemize
+Pas d’évaluation après chaque TD mais 3 interrogations réparties durant
+ le second semestre (voir modalités d’évaluation sur poESI).
+\end_layout
+
+\begin_layout BeginFrame
+Objectifs du Cours 
+\end_layout
+
+\begin_layout Itemize
+Comprendre le fonctionnement du microprocesseur x86 ; 
+\end_layout
+
+\begin_layout Itemize
+Comprendre le fonctionnement de base d'un système d'exploitation ; 
+\end_layout
+
+\begin_layout Itemize
+Comprendre l’évolution des processeurs.
+\end_layout
+
+\begin_layout BeginFrame
+Contenu du cours 
+\end_layout
+
+\begin_layout Enumerate
+Fonctionnement d’un microprocesseur ; 
+\end_layout
+
+\begin_layout Enumerate
+Langage d’assemblage ; 
+\end_layout
+
+\begin_layout Enumerate
+Les modes du x86 ; 
+\end_layout
+
+\begin_layout Enumerate
+Cartographie de la RAM d’un PC; 
+\end_layout
+
+\begin_layout Enumerate
+Démarrage d’un ordinateur ; 
+\end_layout
+
+\begin_layout Enumerate
+Jeu d’instruction du x86 ; 
+\end_layout
+
+\begin_layout Enumerate
+Coprocesseur mathématique ; 
+\end_layout
+
+\begin_layout Enumerate
+Évolution des microprocesseurs.
+\end_layout
+
+\end_body
+\end_document
