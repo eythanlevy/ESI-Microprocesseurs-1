@@ -4,3 +4,17 @@
   Contact : elevy@heb.be
 ========================================================================
 
+Mise à jour des chapitres du cours
+----------------------------------
+
+- Le cycle du microprocesseur : FPL a écrit des slides il y a 2 ans, 
+	pas encore présents ici
+- Interruptions : ELV y travaille
+- Mode réel protégé : OK par ELV
+- Démrrage d'une ordinateur : Rien depuis les slides de JCJ
+- Modes d'adressage : OK par MCD (nouveau par rapport aux slides JCJ)
+- Codage instructions
+	- une version par ELV (instructions)
+	- une version plus récente par MCD (codage-instruction)
+- Coprocesseur : OK par ELV
+- Évolution des processeurs : Rien depuis les slides de JCJ
