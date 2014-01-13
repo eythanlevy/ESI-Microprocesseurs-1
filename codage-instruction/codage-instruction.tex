@@ -82,7 +82,7 @@
 	
 	% -- Remarques
 	\begin{itemize}
-	\item Éléments facultatifs en fonction du type d'instruction
+	\item Longueur variable en fonction de l''instruction
 	\item Assez complexe $\Rightarrow$ procédons par étapes
 	\end{itemize}
 	
@@ -790,11 +790,192 @@
 \end{frame}
 
 % ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Exemple}
+% ----------------------------------------------------
+
+	\bulle{\asm{ADD EAX, EBX}}
+
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+	\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+	01 /r & r32/mem32, r32 \\\hline
+	03 /r & r32, r32/mem32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	\bigskip	
+	\begin{small}
+		Se code
+		$\underbrace{\fbox{01}}_{code op.}$
+		\fbox{
+			$\underbrace{\fbox{1}\fbox{1}}_{\text{registre}}$
+			$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX} $
+			}
+		$\Rightarrow$ 
+		\fbox{01} \fbox{D8}
+	
+		\bigskip
+		ou bien
+		$\underbrace{\fbox{03}}_{code op.}$
+		\fbox{
+			$\underbrace{\fbox{1}\fbox{1}}_{\text{registre}}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX}$
+			$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX} $
+			}
+		$\Rightarrow$ 
+		\fbox{01} \fbox{C3}
+	\end{small}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
 \begin{frame}[fragile]{Les préfixes}
 % ----------------------------------------------------
 
-	Commencer par une page d'intro les citant
-	puis les expliquer un à un.
+	Les préfixes modifient le comportement de l'instruction :
+	\begin{itemize}
+	\item \emph{Répétition} : répétition automatique de l'instruction
+	\item \emph{Taille adresse} : modifie la taille par défaut des adresses (16/32)
+	\item \emph{Taille registre} : modifie la taille par défaut des registres (16/32)
+	\item \emph{Segment} : modifie le segment par défaut
+	\end{itemize}
+	
+	À placer dans cet ordre
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modification du segment}
+% ----------------------------------------------------
+
+	Rappel : une adresse est sous la forme \emph{base : offset}
+
+	\begin{itemize}
+	\item \emph{base} : est l'adresse de début du segment
+	\item Une table reprend les descripteurs de segments
+	\item Des registres spécialisés 
+		\verb_CS_, \verb_DS_, \verb_ES_, \verb_FS_, \verb_GS_ et \verb_SS_
+		donnent l'index dans la table des segments
+	\item \emph{offset} : est le déplacement dans le segment 
+		(spécifié par le programmeur)
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modification du segment}
+% ----------------------------------------------------
+
+	Le segment utilisé dans une instruction est implicite
+	\begin{itemize}
+		\item \asm{INC [AX]} utilisera le segment des données (DS)
+		\item \asm{JMP brol} utilisera le segment du code (CS)
+	\end{itemize}
+	
+	\medskip
+	Peut être modifié (ex: \asm{ADD [ES:EAX], EBX})
+
+	\medskip
+	Codé dans le préfixe
+	\begin{center}
+		\begin{tabular}{|c|c|c|} \hline
+			2E = CS & 3E = DS & 26 = ES \\\hline
+			64 = FS & 65 = GS & 36 = SS \\\hline  
+		\end{tabular}
+	\end{center}
+	
+	\medskip
+	\asm{ADD [ES:EAX], EBX}
+	$\Rightarrow$ 
+	\fbox{26} \fbox{01} \fbox{18}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Préfixe de répétition}
+% ----------------------------------------------------
+
+	Permet de répéter \verb_ECX_ fois une instruction
+	\begin{itemize}
+	\item En assembleur, on préfixe par \asm{REP}
+	\item Codé \verb_F3_
+	\end{itemize}
+	
+	Exemple : Répétition de l'instruction \asm{MOVSB} 
+	\begin{itemize}
+		\item \asm{MOVSB} copie un byte de \verb_[ESI]_
+		vers \verb_[EDI]_ puis incrémente \verb_ESI_ et \verb_EDI_.
+		\item Donc, pour copier les 10 premiers bytes de chaine1 dans chaine2
+		\begin{Asm}
+			MOV ESI, chaine1
+			MOV EDI, chaine2
+			MOV ECX, 10
+			REP MOVSB           ; codé F3 A4
+		\end{Asm}
+	\end{itemize}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Taille des des données et des adresses}
+% ----------------------------------------------------
+
+	Extrait de la référence de ADD
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+		\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+			{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+		00 /r & r8/m8, r8 \\\hline
+		01 /r & r16/m16, r16 \\\hline
+		01 /r & r32/m32, r32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	Mais alors, \asm{ADD EAX, EBX} et \asm{ADD AX, BX} se codent de la même façon ?
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Taille des des données et des adresses}
+% ----------------------------------------------------
+
+	Un bit \verb_D_ dans le descripteur de segment indique
+	si on utilise des registres/adresses 
+	16 bits (\verb_D=0_) ou 32 bits (\verb_D=1_)
+	
+	\bigskip 
+	Spécifié en assembleur via les macros 
+	\asm{[BITS 16]} et \asm{[BITS 32]}
+
+	\bigskip
+	Pour une instruction donnée, 
+	peut être modifié pour via les préfixes
+	\begin{itemize}
+		\item \verb_0x66_ : pour la taille d'une donnée
+		\item \verb_0x67_ : pour la taille d'une adresse
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Taille des des données et des adresses}
+% ----------------------------------------------------
+
+	Exemples
+	\begin{Asm}[basicstyle=\small]
+	[BITS 16]
+	INC AX             ; pas de préfixe
+	INC	EAX            ; 0x66 : donnée sur 32 bits
+	INC word [EAX]     ; 0x67 : adresse 32 bits
+	INC dword [EAX]    ; 0x66 0x67 : donnée et adresse 32 bits
+	ADD AX, BX         ; pas de préfixe
+	ADD EAX, EBX       ; 0x66 : données sur 32 bits
+	ADD EAX, [EBX]     ; 0x66 0x67 : donnée et adresse 32 bits
+	\end{Asm}
 	
 \end{frame}
 
