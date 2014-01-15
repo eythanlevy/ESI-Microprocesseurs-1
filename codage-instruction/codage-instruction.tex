@@ -1,0 +1,983 @@
+% === Cours de Java
+% === Version couleur pour la présentation
+
+\documentclass[14pt,xcolor,table]{beamer}
+\usetheme{Warsaw}
+
+\usepackage{mic}
+
+\title{Microprocesseurs (MIC)}
+\subtitle{Chap. ?: Codage des instructions}
+\date{} 
+
+% =====================   DOCUMENT ===================++
+\begin{document}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}
+	\titlepage
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Objectifs}
+% ----------------------------------------------------
+	
+	\begin{itemize}
+	\item 
+		Comprendre comment sont codées les instructions du \verb_x86_
+		\bigskip
+	\item 
+		Être capable de traduire 
+		\begin{center}
+			Assembleur $\Longleftrightarrow$ Code machine
+		\end{center}
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Plan}
+% ----------------------------------------------------
+
+	\begin{itemize}
+	\item Format général d'une instruction
+	\item Le code opératoire
+	\item Instructions sans opérande
+	\item Instructions avec 1 opérande (cas simples)
+	\item Les bytes ModR/M et SIB
+	\item Modes d'adressages complexes
+	\item Instructions avec 2 opérandes
+	\item Les préfixes
+	\end{itemize}
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Forme générale d'une instruction}
+% ----------------------------------------------------
+
+	% -- Format
+	\hrule
+	\begin{footnotesize}
+		\begin{tabular}{cccccc}
+			préfixe & code op. & {\scriptsize ModR/M} & SIB & déplacement & val. imméd.\\
+			\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}} &
+			\fcolorbox{black}{gray}{\color{gray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}} &
+			\fcolorbox{black}{lightgray}{\color{lightgray}{X}} &
+			\fcolorbox{black}{lightgray}{\color{lightgray}{X}} &
+			\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}} &
+			\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}}\fcolorbox{black}{lightgray}{\color{lightgray}{X}} \\
+			1 à 4 & & & & 1, 2 ou 4 & 1, 2 ou 4\\
+		\end{tabular}
+	\end{footnotesize}
+	\hrule
+	
+	% -- Légende
+	\begin{center}
+		\begin{scriptsize}
+			\fcolorbox{black}{gray}{\color{gray}{X}} = obligatoire \qquad
+			\fcolorbox{black}{lightgray}{\color{lightgray}{X}} = facultatif
+		\end{scriptsize}
+	\end{center}
+	
+	% -- Remarques
+	\begin{itemize}
+	\item Longueur variable en fonction de l''instruction
+	\item Assez complexe $\Rightarrow$ procédons par étapes
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Le code opératoire}
+% ----------------------------------------------------
+
+	Identifie l'opération à exécuter
+	\begin{itemize}
+	\item Souvent sur 1 byte, parfois sur 2
+	\item Parfois, utilise une partie du byte ModR/M
+		\\(on parle d'extension du code)
+	\end{itemize}
+
+	\medskip
+	Un mnémonique, plusieurs code associés
+	\begin{itemize}
+	\item En fonction des opérandes
+	\item Ex: \asm{INC} peut se coder 40 à 47, FE ou FF
+	\end{itemize}
+
+	\medskip
+	Un code opératoire, une seule instruction
+	\\(extension comprise)
+	\begin{itemize}
+	\item Ex: CD est un \asm{INT}, 01 est un \asm{ADD}
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Référence}
+% ----------------------------------------------------
+
+	Où trouver ces codes opératoires et les détails ?
+	\begin{itemize}
+	\item Dans une référence (disponible sur poÉSI)
+	\item Exemple
+
+	\begin{center}
+	\begin{footnotesize}
+	\begin{tabular}{|c|c|}
+		\multicolumn{2}{c}{\asm{DEC}}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+		FE /1 & r/m8 \\\hline
+		FF /1 & r/m16 \\\hline
+		48+rw & r16 \\\hline
+		48+rw & r32 \\\hline
+	\end{tabular}
+	\end{footnotesize}
+	\end{center}
+
+	\item
+		Pas évident à lire; 
+		nous introduirons les notations petit à petit
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Instruction sans paramètre}
+% ----------------------------------------------------
+
+	Codée sur 1 byte : le code opératoire de l'instruction
+	\begin{center}
+		\emph{\fbox{code op.}}
+	\end{center}
+
+	\bigskip 
+	\bulle{Exemple : \asm{NOP}}
+
+	\begin{center}
+	\begin{footnotesize}
+	\begin{tabular}{|c|c|}
+		\multicolumn{2}{c}{\asm{NOP}}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+		90 & \\\hline
+	\end{tabular}
+	\end{footnotesize}
+	\end{center}
+
+	\begin{center}
+		\asm{NOP} $\Longrightarrow \underbrace{\fbox{90}}_{\text{code op.}}$ 
+	\end{center}
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Instruction avec une opérande immédiate}
+% ----------------------------------------------------
+
+	Codage : {\small\emph{\fbox{code op.} \fbox{immédiat sur 1, 2 ou 4 bytes}}}
+	
+	\bulle{\asm{INT 0x80}}
+	
+	\begin{center}
+	\begin{footnotesize}
+	\begin{tabular}{|c|c|c|}
+		\multicolumn{3}{c}{\asm{INT}}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} & {\cellcolor{gray!25}Explications} \\\hline
+		CD ib & imm8 & imm8 est le numéro de l'interruption \\\hline
+	\end{tabular}
+	\end{footnotesize}
+	\end{center}
+	
+	\begin{itemize}
+	\item \emph{ib} : l'opcode est étendu par une valeur immédiate sur un byte
+	\item \emph{imm8} : l'opérande est une valeur immédiate interprétée sur 1 byte
+	\end{itemize}	
+	
+	\begin{center}
+		\asm{INT 0x80} 
+			$\Longrightarrow$ 
+			$\underbrace{\fbox{CD}}_{\text{code op.}}$
+			$\underbrace{\fbox{80}}_{\text{imm8}}$
+	\end{center}
+		
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Coder les registres}
+% ----------------------------------------------------
+
+	Dans les exemples suivants, nous devrons coder des registres.
+	Comment ?
+	\begin{itemize}
+	\item Via 3 bits
+	
+		\begin{center}
+		\begin{tabular}{|l|l||l|l|}
+		\hline 
+		AL, AX, EAX & 000 & AH, SP, ESP & 100\tabularnewline
+		\hline 
+		CL, CX, ECX & 001 & CH, BP, EBP & 101\tabularnewline
+		\hline 
+		DL, DX, EDX & 010 & DH, SI, ESI & 110\tabularnewline
+		\hline 
+		BL, BX, EBX & 011 & BH, DI, EDI & 111\tabularnewline
+		\hline 
+		\end{tabular}
+		\end{center}
+		
+	\item 
+		À quel registre correspond un code ?
+		\\Dépend du contexte.
+	\end{itemize}
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Instruction avec une opérande registre}
+% ----------------------------------------------------
+
+	Codage : \emph{\fbox{code op. + \no registre}}
+	
+	\medskip
+	\bulle{\asm{INC EBX}}
+	
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+		\multicolumn{3}{c}{\asm{INC} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} & {\cellcolor{gray!25}Explications} \\\hline
+		40 + rd & r32 & incrémente le registre désigné \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+	
+	\begin{itemize}
+	\item \emph{+rd} : le numéro du registre 32 bits est ajouté à l'opcode
+	\item \emph{r32} : l'opérande est un registre 32 bits
+	\end{itemize}	
+	
+	\begin{center}
+		\asm{INC EBX}
+			$\Longrightarrow$ 
+			$\underbrace{\fbox{43}}_{\text{40 (code op.) + 3 (EBX)}}$
+	\end{center}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Le byte ModR/M}
+% ----------------------------------------------------
+
+	Utilisé pour les modes d'adressages complexes
+	
+	\begin{center}
+		{\small ModR/M} \\
+		\fbox{
+		$\underbrace{\fbox{\ }\fbox{\ }}_{Mod}$
+		$\underbrace{\fbox{\ }\fbox{\ }\fbox{\ }}_{divers}$
+		$\underbrace{\fbox{\ }\fbox{\ }\fbox{\ }}_{R/M} $
+		}
+	\end{center}
+	
+	\begin{itemize}
+	\item \emph{Mod} : mode d'adressage pour la partie R/M
+	\item \emph{R/M} : opérande \\(peut nécessiter d'autres bytes)
+	\item \emph{divers} : dépend du nombre d'opérandes
+		\begin{itemize}
+		\item 1 opérande : extension du code opératoire
+		\item 2 opérandes : deuxième opérande (un registre)
+		\end{itemize}	
+	\end{itemize}	
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Mode d'adressage plus complexe}
+% ----------------------------------------------------
+
+	Analysons la référence de \asm{INC}
+
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|}
+		\multicolumn{2}{c}{\asm{INC} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+		FF /0 & r/m32\\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+	
+	\begin{itemize}
+	\item 
+		\emph{r/m32} : l'opérande est un registre 32 bits ou une mémoire 32 bits
+		\begin{itemize}
+		\item utilisation du byte ModR/M
+		\item permet les différents adressages complexes
+		\item nous allons les voir un à un
+		\end{itemize}
+	\item 
+		\emph{/0} : la partie \textit{divers} de ModR/M vaut 0
+		\begin{itemize}
+		\item on parle d'extension de code
+		\end{itemize}
+	\end{itemize}	
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Mode d'adressage par registre}
+% ----------------------------------------------------
+
+	Codage : \emph{
+		\fbox{code op.} 
+		\fbox{
+			$\fbox{1}\fbox{1}$
+			$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+			$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{registre} $
+		}
+	}
+	
+	Inutile pour \asm{INC} qui propose une autre forme mais ce n'est pas toujours le cas
+
+	\bulle{\asm{NOT EBX}}
+	
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|}
+		\multicolumn{2}{c}{\asm{NOT} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+		F7 /2 & r/m32\\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	\bigskip
+	\quad$\Rightarrow$ 
+	$\underbrace{\fbox{F7}}_{code op.}$
+	\fbox{
+		$\fbox{1}\fbox{1}$
+		$\underbrace{\fbox{0}\fbox{1}\fbox{0}}_{/2}$
+		$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX} $
+		}
+	\quad$\Rightarrow$ 
+	\fbox{F7} \fbox{D3}
+	\bigskip
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Mode d'adressage indirect}
+% ----------------------------------------------------
+
+	Codage : \emph{
+		\fbox{code op.} 
+		\fbox{
+			$\fbox{0}\fbox{0}$
+			$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+			$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{registre} $
+		}
+	}
+	
+	\bulle{\asm{INC dword [EBX]}}
+	
+	\bigskip
+	%\asm{INC [EBX]} 
+	\quad$\Rightarrow$ 
+	$\underbrace{\fbox{FF}}_{code op.}$
+	\fbox{
+		$\fbox{0}\fbox{0}$
+		$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{/0}$
+		$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX} $
+		}
+	\\\medskip\quad$\Rightarrow$ 
+	\fbox{FF} \fbox{03}
+	\bigskip
+		
+	Remarque : le registre ne peut être ni \asm{EBP} ni \asm{ESP}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adressage indirect avec déplacement court}
+% ----------------------------------------------------
+
+	\begin{small}
+		\emph{
+			\fbox{code op.} 
+			\fbox{
+				$\fbox{0}\fbox{1}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{registre} $
+			}
+			$\underbrace{\fbox{déplacement}}_{\text{1 byte}}$
+		}
+	\end{small}
+	
+	\medskip
+	\bulle{\asm{INC dword [EBX + 10]}}
+	
+	\bigskip
+	\smallskip\quad$\Rightarrow$ 
+	$\underbrace{\fbox{FF}}_{code op.}$
+	\fbox{
+		$\fbox{0}\fbox{1}$
+		$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{/0}$
+		$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX}$
+	}
+	$\underbrace{\fbox{0A}}_{\text{dépl.}}$
+	\\\smallskip\quad$\Rightarrow$ 
+	\fbox{FF} \fbox{43} \fbox{0A}
+	\bigskip
+		
+	Remarque : le registre ne peut pas être \asm{ESP}
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adressage indirect avec déplacement long}
+% ----------------------------------------------------
+
+	\begin{small}
+		\emph{
+			\fbox{code op.} 
+			\fbox{
+				$\fbox{1}\fbox{0}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{registre} $
+			}
+			$\underbrace{\fbox{déplacement}}_{\text{4 bytes}}$
+		}
+	\end{small}
+
+	\medskip
+	\bulle{\asm{INC dword [EAX+0x1234]}}
+	
+	\bigskip
+	\begin{small}
+		\smallskip\quad$\Rightarrow$ 
+		$\underbrace{\fbox{FF}}_{code op.}$
+		\fbox{
+			$\fbox{1}\fbox{0}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{/0}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX}$
+		}
+		$\underbrace{\text{\fbox{34} \fbox{12} \fbox{00} \fbox{00}}}_{\text{dépl. en petit-indien}}$
+		\\\smallskip\quad$\Rightarrow$ 
+		\fbox{FF} \fbox{80} \fbox{34} \fbox{12} \fbox{00} \fbox{00}
+	\end{small}
+	\bigskip
+		
+	Remarque : le registre ne peut pas être \asm{ESP}
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Adressage direct}
+% ----------------------------------------------------
+
+	\begin{small}
+		\emph{
+			\fbox{code op.}
+			\fbox{
+				$\fbox{0}\fbox{0}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+				$\underbrace{\fbox{1}\fbox{0}\fbox{1}}_{\text{exc. EBP}}$
+			}
+			$\underbrace{\fbox{adresse}}_{\text{4 bytes}}$
+		}
+	\end{small}
+
+	\medskip
+	\bulle{\asm{INC dword [0x1234]}}
+	
+	\bigskip
+	\begin{small}
+		\smallskip\quad$\Rightarrow$ 
+		$\underbrace{\fbox{FF}}_{code op.}$
+		\fbox{
+			$\fbox{0}\fbox{0}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{/0}$
+			$\underbrace{\fbox{1}\fbox{0}\fbox{1}}_{\text{imposé}}$
+		}
+		$\underbrace{\text{\fbox{34} \fbox{12} \fbox{00} \fbox{00}}}_{\text{dépl. en petit-indien}}$
+		\\\medskip\quad$\Rightarrow$ 
+		\fbox{FF} \fbox{05} \fbox{34} \fbox{12} \fbox{00} \fbox{00}
+	\end{small}
+	\bigskip
+	
+	% vrai si on compile avec l'option bin mais pas avec le elf32
+	%\begin{tiny}
+	%Note : valable en mode [BITS 32], en mode [BITS 16] donne FF 06\dots
+	%\end{tiny}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Le byte SIB}
+% ----------------------------------------------------
+
+	\begin{itemize}
+	\item Utilisé en complément à ModR/M
+	\item Pour les modes d'adressages indexés {\small ($B + S\times I$)}
+	\end{itemize}
+	
+	\begin{center}
+		{\small SIB} \\
+		\fbox{
+		$\underbrace{\fbox{\ }\fbox{\ }}_{S}$
+		$\underbrace{\fbox{\ }\fbox{\ }\fbox{\ }}_{I}$
+		$\underbrace{\fbox{\ }\fbox{\ }\fbox{\ }}_{B} $
+		}
+	\end{center}
+	
+	\begin{description}
+	\item[\emph{S}] facteur multiplicatif (scale)
+		\\\quad{\small $2^i \Rightarrow 00=1\times, 01=2\times, 10=4\times, 11=8\times$}
+	\item[\emph{I}] registre d'index
+	\item[\emph{B}] registre de base
+	\end{description}	
+
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Indirect indexé}
+% ----------------------------------------------------
+
+	\begin{small}
+		\emph{
+			\fbox{code op.}
+			\fbox{
+				$\fbox{0}\fbox{0}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+				$\underbrace{\fbox{1}\fbox{0}\fbox{0}}_{\text{exc. ESP}}$
+			}
+			\fbox{SIB}
+		}
+	\end{small}
+
+	\medskip
+	\bulle{\asm{INC dword [EAX+4*EBX]}}
+	
+	\bigskip
+	\begin{scriptsize}
+		\smallskip\quad$\Rightarrow$ 
+		$\underbrace{\fbox{FF}}_{code op.}$
+		{
+			\fbox{
+				\fbox{0}\fbox{0}
+				$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{/0}$
+				$\underbrace{\fbox{1}\fbox{0}\fbox{0}}_{\text{imposé}}$
+			}
+		}
+		\fbox{
+			$\underbrace{\fbox{1}\fbox{0}}_{*4}$
+			$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX}$
+		}
+		\\\medskip\quad$\Rightarrow$ 
+		\fbox{FF} \fbox{04} \fbox{98}
+	\end{scriptsize}
+	\bigskip
+		
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Indirect indexé avec déplacement court}
+% ----------------------------------------------------
+
+	\begin{small}
+		\emph{
+			\fbox{code op.}
+			\fbox{
+				$\fbox{0}\fbox{1}$
+				$\underbrace{\fbox{\color{white}{X}}\fbox{\color{white}{X}}\fbox{\color{white}{X}}}_{ext. code}$
+				$\underbrace{\fbox{1}\fbox{0}\fbox{0}}_{\text{exc. ESP}}$
+			}
+			\fbox{SIB}
+			$\underbrace{\fbox{adresse}}_{\text{1 byte}}$
+		}
+	\end{small}
+
+	\medskip
+	\bulle{\asm{INC dword [EAX+4*EBX+10]}}
+	
+	\bigskip
+	\begin{scriptsize}
+		\smallskip\quad$\Rightarrow$ 
+		$\underbrace{\fbox{FF}}_{code op.}$
+		{
+			\fbox{
+				\fbox{0}\fbox{1}
+				$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{/0}$
+				$\underbrace{\fbox{1}\fbox{0}\fbox{0}}_{\text{imposé}}$
+			}
+		}
+		\fbox{
+			$\underbrace{\fbox{1}\fbox{0}}_{\times 4}$
+			$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX}$
+		}
+		$\underbrace{\text{\fbox{0A}}}_{\text{dépl}}$
+		\\\medskip\quad$\Rightarrow$ 
+		\fbox{FF} \fbox{44} \fbox{98} \fbox{0A}
+	\end{scriptsize}
+	\bigskip
+		
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{ModR/M - récapitulatif}
+% ----------------------------------------------------
+
+	\begin{small}
+	\begin{tabular}{l|l|l}
+		Adressage & Exemple & ModR/M \\\hline\hline
+		registre & EAX & 
+					$\fbox{1}\fbox{1}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+			 \\
+		indirect & [EAX] &
+					$\fbox{0}\fbox{0}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+			 \\
+		indirect + court & [EAX+10] &
+					$\fbox{0}\fbox{1}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+			\\
+		indirect + long & [EAX+800] &
+					$\fbox{1}\fbox{0}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+			\\
+		direct & [adresse] &
+					$\fbox{0}\fbox{0}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{1}\fbox{0}\fbox{1}$
+			\\
+		indirect indexé & [EAX+4*EBX] &
+					$\fbox{0}\fbox{0}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{1}\fbox{0}\fbox{0}$
+			\\
+		indexé + court & [EAX+4*EBX+10] &
+					$\fbox{0}\fbox{1}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{1}\fbox{0}\fbox{0}$
+			\\
+		indexé + long & [EAX+4*EBX+800] &
+					$\fbox{1}\fbox{0}$
+					$\fbox{\color{white}{0}}\fbox{\color{white}{0}}\fbox{\color{white}{0}}$
+					$\fbox{1}\fbox{0}\fbox{0}$
+			\\
+	\end{tabular}
+	\end{small}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Instruction avec deux opérandes}
+% ----------------------------------------------------
+
+	Remarques générales
+	\begin{itemize}
+	\item Une des deux opérandes sera toujours un registre (mode registre)
+	\item Pour l'autre on aura toutes les possibilités
+	\end{itemize}
+	
+	\bigskip
+	Exemples
+	\begin{itemize}
+	\item \asm{ADD EAX, brol} (registre, immédiat) $\Rightarrow$ OK
+	\item \asm{ADD [EAX], EBX} (indirect, registre) $\Rightarrow$ OK
+	\item \asm{ADD EAX, EBX} (registre, registre) $\Rightarrow$ OK
+	\item \asm{ADD [EAX], [EBX]} (indirect, indirect)  $\Rightarrow$ interdit
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Instruction avec deux opérandes}
+% ----------------------------------------------------
+
+	Le code opératoire va dépendre de l'ordre des opérandes
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+	\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+	{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+	01 /r & r32/mem32, r32 \\\hline
+	03 /r & r32, r32/mem32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+	
+	\bigskip
+	Exemples
+	\begin{itemize}
+	\item \asm{ADD EAX, brol} utilise le code \verb_03_
+	\item \asm{ADD [EAX], EBX} utilise le code \verb_01_
+	\item \asm{ADD EAX, EBX} utilise le code \verb_01_ ou \verb_03_
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Exemple}
+% ----------------------------------------------------
+
+	\bulle{\asm{ADD ECX, [EBX]}}
+
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+	\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+	01 /r & r32/mem32, r32 \\\hline
+	03 /r & r32, r32/mem32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	\bigskip
+	\quad$\Rightarrow$ 
+	$\underbrace{\fbox{03}}_{code op.}$
+	\fbox{
+		$\underbrace{\fbox{0}\fbox{0}}_{indirect}$
+		$\underbrace{\fbox{0}\fbox{0}\fbox{1}}_{ECX}$
+		$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX} $
+		}
+	\\\medskip\quad$\Rightarrow$ 
+	\fbox{03} \fbox{0B}
+	\bigskip
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Exemple}
+% ----------------------------------------------------
+
+	\bulle{\asm{ADD [EAX+10], EBX}}
+
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+	\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+	01 /r & r32/mem32, r32 \\\hline
+	03 /r & r32, r32/mem32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	\bigskip
+	\quad$\Rightarrow$ 
+	$\underbrace{\fbox{01}}_{code op.}$
+	\fbox{
+		$\underbrace{\fbox{0}\fbox{1}}_{\text{dépl. court}}$
+		$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX}$
+		$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX} $
+		}
+	\fbox{0A}
+	\\\medskip\quad$\Rightarrow$ 
+	\fbox{01} \fbox{58} \fbox{0A}
+	\bigskip
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Exemple}
+% ----------------------------------------------------
+
+	\bulle{\asm{ADD EAX, EBX}}
+
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+	\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+		{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+	01 /r & r32/mem32, r32 \\\hline
+	03 /r & r32, r32/mem32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	\bigskip	
+	\begin{small}
+		Se code
+		$\underbrace{\fbox{01}}_{code op.}$
+		\fbox{
+			$\underbrace{\fbox{1}\fbox{1}}_{\text{registre}}$
+			$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX} $
+			}
+		$\Rightarrow$ 
+		\fbox{01} \fbox{D8}
+	
+		\bigskip
+		ou bien
+		$\underbrace{\fbox{03}}_{code op.}$
+		\fbox{
+			$\underbrace{\fbox{1}\fbox{1}}_{\text{registre}}$
+			$\underbrace{\fbox{0}\fbox{0}\fbox{0}}_{EAX}$
+			$\underbrace{\fbox{0}\fbox{1}\fbox{1}}_{EBX} $
+			}
+		$\Rightarrow$ 
+		\fbox{01} \fbox{C3}
+	\end{small}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Les préfixes}
+% ----------------------------------------------------
+
+	Les préfixes modifient le comportement de l'instruction :
+	\begin{itemize}
+	\item \emph{Répétition} : répétition automatique de l'instruction
+	\item \emph{Taille adresse} : modifie la taille par défaut des adresses (16/32)
+	\item \emph{Taille registre} : modifie la taille par défaut des registres (16/32)
+	\item \emph{Segment} : modifie le segment par défaut
+	\end{itemize}
+	
+	À placer dans cet ordre
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modification du segment}
+% ----------------------------------------------------
+
+	Rappel : une adresse est sous la forme \emph{base : offset}
+
+	\begin{itemize}
+	\item \emph{base} : est l'adresse de début du segment
+	\item Une table reprend les descripteurs de segments
+	\item Des registres spécialisés 
+		\verb_CS_, \verb_DS_, \verb_ES_, \verb_FS_, \verb_GS_ et \verb_SS_
+		donnent l'index dans la table des segments
+	\item \emph{offset} : est le déplacement dans le segment 
+		(spécifié par le programmeur)
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Modification du segment}
+% ----------------------------------------------------
+
+	Le segment utilisé dans une instruction est implicite
+	\begin{itemize}
+		\item \asm{INC [AX]} utilisera le segment des données (DS)
+		\item \asm{JMP brol} utilisera le segment du code (CS)
+	\end{itemize}
+	
+	\medskip
+	Peut être modifié (ex: \asm{ADD [ES:EAX], EBX})
+
+	\medskip
+	Codé dans le préfixe
+	\begin{center}
+		\begin{tabular}{|c|c|c|} \hline
+			2E = CS & 3E = DS & 26 = ES \\\hline
+			64 = FS & 65 = GS & 36 = SS \\\hline  
+		\end{tabular}
+	\end{center}
+	
+	\medskip
+	\asm{ADD [ES:EAX], EBX}
+	$\Rightarrow$ 
+	\fbox{26} \fbox{01} \fbox{18}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Préfixe de répétition}
+% ----------------------------------------------------
+
+	Permet de répéter \verb_ECX_ fois une instruction
+	\begin{itemize}
+	\item En assembleur, on préfixe par \asm{REP}
+	\item Codé \verb_F3_
+	\end{itemize}
+	
+	Exemple : Répétition de l'instruction \asm{MOVSB} 
+	\begin{itemize}
+		\item \asm{MOVSB} copie un byte de \verb_[ESI]_
+		vers \verb_[EDI]_ puis incrémente \verb_ESI_ et \verb_EDI_.
+		\item Donc, pour copier les 10 premiers bytes de chaine1 dans chaine2
+		\begin{Asm}
+			MOV ESI, chaine1
+			MOV EDI, chaine2
+			MOV ECX, 10
+			REP MOVSB           ; codé F3 A4
+		\end{Asm}
+	\end{itemize}
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Taille des des données et des adresses}
+% ----------------------------------------------------
+
+	Extrait de la référence de ADD
+	\begin{center}
+	\begin{small}
+	\begin{tabular}{|c|c|c|}
+		\multicolumn{2}{c}{\asm{ADD} (extrait)}\\\hline
+			{\cellcolor{gray!25}Opcode} & {\cellcolor{gray!25}Opérandes} \\\hline
+		00 /r & r8/m8, r8 \\\hline
+		01 /r & r16/m16, r16 \\\hline
+		01 /r & r32/m32, r32 \\\hline
+	\end{tabular}
+	\end{small}
+	\end{center}
+
+	Mais alors, \asm{ADD EAX, EBX} et \asm{ADD AX, BX} se codent de la même façon ?
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Taille des des données et des adresses}
+% ----------------------------------------------------
+
+	Un bit \verb_D_ dans le descripteur de segment indique
+	si on utilise des registres/adresses 
+	16 bits (\verb_D=0_) ou 32 bits (\verb_D=1_)
+	
+	\bigskip 
+	Spécifié en assembleur via les macros 
+	\asm{[BITS 16]} et \asm{[BITS 32]}
+
+	\bigskip
+	Pour une instruction donnée, 
+	peut être modifié pour via les préfixes
+	\begin{itemize}
+		\item \verb_0x66_ : pour la taille d'une donnée
+		\item \verb_0x67_ : pour la taille d'une adresse
+	\end{itemize}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Taille des des données et des adresses}
+% ----------------------------------------------------
+
+	Exemples
+	\begin{Asm}[basicstyle=\small]
+	[BITS 16]
+	INC AX             ; pas de préfixe
+	INC	EAX            ; 0x66 : donnée sur 32 bits
+	INC word [EAX]     ; 0x67 : adresse 32 bits
+	INC dword [EAX]    ; 0x66 0x67 : donnée et adresse 32 bits
+	ADD AX, BX         ; pas de préfixe
+	ADD EAX, EBX       ; 0x66 : données sur 32 bits
+	ADD EAX, [EBX]     ; 0x66 0x67 : donnée et adresse 32 bits
+	\end{Asm}
+	
+\end{frame}
+
+% ------------------------------------------------------
+\end{document}
