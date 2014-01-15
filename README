@@ -7,14 +7,10 @@
 Mise à jour des chapitres du cours
 ----------------------------------
 
-- Le cycle du microprocesseur : FPL a écrit des slides il y a 2 ans, 
-	pas encore présents ici
-- Interruptions : ELV y travaille
+- Le cycle du microprocesseur + Interruptions: nouvelle version par ELV (incluant slides de FPL) (répertoire "microprocesseurs")
 - Mode réel protégé : OK par ELV
 - Démrrage d'une ordinateur : Rien depuis les slides de JCJ
 - Modes d'adressage : OK par MCD (nouveau par rapport aux slides JCJ)
-- Codage instructions
-	- une version par ELV (instructions)
-	- une version plus récente par MCD (codage-instruction)
+- Codage instructions:  nouvelle version par MCD (codage-instruction), qui remplace l'ancienne par ELV (instructions))
 - Coprocesseur : OK par ELV
 - Évolution des processeurs : Rien depuis les slides de JCJ
