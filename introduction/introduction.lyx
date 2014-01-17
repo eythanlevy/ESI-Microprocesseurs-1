@@ -168,15 +168,29 @@ Objectifs du Cours
 \end_layout
 
 \begin_layout Itemize
-Comprendre le fonctionnement du microprocesseur x86 ; 
+Comprendre le microprocesseur
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ce qu'on y trouve 
 \end_layout
 
 \begin_layout Itemize
-Comprendre le fonctionnement de base d'un système d'exploitation ; 
+Comment il fonctionne 
 \end_layout
 
 \begin_layout Itemize
-Comprendre l’évolution des processeurs.
+Les liens avec les autres composants 
+\end_layout
+
+\begin_layout Itemize
+Sa programmation Son évolution
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Remarque : nous nous concentrerons sur la famille des i386
 \end_layout
 
 \begin_layout BeginFrame
@@ -261,6 +275,10 @@ Contenu du cours
 
 \begin_layout Enumerate
 Fonctionnement d’un microprocesseur ; 
+\end_layout
+
+\begin_layout Enumerate
+Interruptions
 \end_layout
 
 \begin_layout Enumerate

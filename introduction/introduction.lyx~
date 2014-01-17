@@ -164,28 +164,80 @@ tableofcontents[currentsection,currentsubsection]
 \end_layout
 
 \begin_layout BeginFrame
+Objectifs du Cours 
+\end_layout
+
+\begin_layout Itemize
+Comprendre le fonctionnement du microprocesseur x86 ; 
+\end_layout
+
+\begin_layout Itemize
+Comprendre le fonctionnement de base d'un système d'exploitation ; 
+\end_layout
+
+\begin_layout Itemize
+Comprendre l’évolution des processeurs.
+\end_layout
+
+\begin_layout BeginFrame
 Support de cours 
 \end_layout
 
 \begin_layout Itemize
-Un syllabus électronique sur poESI ; 
+Disponible sur poÉSI :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Un syllabus électronique ; 
 \end_layout
 
 \begin_layout Itemize
-Une prise en main de GDB sur poESI ; 
+Une prise en main de GDB ; 
 \end_layout
 
 \begin_layout Itemize
-Une description des instructions les plus importantes sur poESI.
+Une description des instructions les plus importantes.
  
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 Les slides sont une structure du cours et pas un contenu.
  Il est donc indispensable de compléter les slides avec les explications
  fournies au cours.
 \end_layout
 
+\begin_layout BeginFrame
+Modalités du cours
+\end_layout
+
+\begin_layout Itemize
+25 heures
+\end_layout
+
+\begin_layout Itemize
+Évalué par un examen
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+écrit en juin
+\end_layout
+
+\begin_layout Itemize
+oral en septembre
+\end_layout
+
+\begin_layout Itemize
+cote distincte du laboratoire
+\end_layout
+
+\begin_layout Itemize
+anciens examens disponibles sur poÉSI
+\end_layout
+
+\end_deeper
 \begin_layout BeginFrame
 Laboratoires
 \end_layout
@@ -204,27 +256,15 @@ Pas d’évaluation après chaque TD mais 3 interrogations réparties durant
 \end_layout
 
 \begin_layout BeginFrame
-Objectifs du Cours 
-\end_layout
-
-\begin_layout Itemize
-Comprendre le fonctionnement du microprocesseur x86 ; 
-\end_layout
-
-\begin_layout Itemize
-Comprendre le fonctionnement de base d'un système d'exploitation ; 
-\end_layout
-
-\begin_layout Itemize
-Comprendre l’évolution des processeurs.
-\end_layout
-
-\begin_layout BeginFrame
 Contenu du cours 
 \end_layout
 
 \begin_layout Enumerate
 Fonctionnement d’un microprocesseur ; 
+\end_layout
+
+\begin_layout Enumerate
+Interruptions
 \end_layout
 
 \begin_layout Enumerate
