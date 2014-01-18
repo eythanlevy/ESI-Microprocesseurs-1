@@ -87,7 +87,7 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 1: Fonctionnement d’un microprocesseur
+Chapitre 2: Fonctionnement d’un microprocesseur
 \end_layout
 
 \begin_layout Date
@@ -208,7 +208,7 @@ Exemple de processeur simplifié
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../../../../../../../Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
+	filename /Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
 	width 12cm
 
 \end_inset
@@ -562,7 +562,8 @@ Modèle simplifié
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/machine-simplifiee.jpg
+	filename images/Slide1.JPG
+	lyxscale 33
 	width 110col%
 
 \end_inset
@@ -838,7 +839,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-1.JPG
+	filename images/Slide4.JPG
 	lyxscale 10
 	width 100text%
 
@@ -854,7 +855,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-2.JPG
+	filename images/Slide5.JPG
 	lyxscale 10
 	width 100text%
 
@@ -870,7 +871,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-3.JPG
+	filename images/Slide6.JPG
 	lyxscale 10
 	width 100text%
 
@@ -886,7 +887,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-4.JPG
+	filename images/Slide7.JPG
 	lyxscale 10
 	width 100text%
 
@@ -902,7 +903,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-5.JPG
+	filename images/Slide8.JPG
 	lyxscale 10
 	width 100text%
 
@@ -918,7 +919,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-6.JPG
+	filename images/Slide9.JPG
 	lyxscale 10
 	width 100text%
 
@@ -934,7 +935,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-7.JPG
+	filename images/Slide10.JPG
 	lyxscale 10
 	width 100text%
 
@@ -950,7 +951,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-8.JPG
+	filename images/Slide11.JPG
 	lyxscale 10
 	width 100text%
 
@@ -966,7 +967,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-9.JPG
+	filename images/Slide12.JPG
 	lyxscale 10
 	width 100text%
 
@@ -982,7 +983,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-10.JPG
+	filename images/Slide13.JPG
 	lyxscale 10
 	width 100text%
 
@@ -998,7 +999,7 @@ Exemple
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycle-CPU-11.JPG
+	filename images/Slide14.JPG
 	lyxscale 10
 	width 100text%
 
