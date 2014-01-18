@@ -1,0 +1,83 @@
+% =========================================
+% Style pour les slides du cours de Micro 1
+% =========================================
+
+% ===== Configuration des pages beamer
+
+\setcounter{secnumdepth}{3}
+
+% ===== Francisation
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}    % permet les fontes T1 qui posèdent des accents 
+\usepackage{lmodern} 	    % equivalent de la fonte CM avec accents
+\usepackage[frenchb]{babel} % pq frenchb et pas french ?
+
+% ===== bullets pour les items
+
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{itemize subitem}[square]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+% ===== Insertion de code ASM et autre
+
+% -- Environnement Verbatim
+% 		Code : pour du code non ASM (shell, output, ...)
+% 		Asm : pour du code ASM
+% -- Pour du code inline : asm et code
+%
+% L'argument optionnel permet d'adapter la mise en page
+% ex: \begin{Java}[basicstyle=\scriptsize] pour du code plus petit
+% Mettre le frame en fragile
+
+\usepackage{listings}
+\lstdefinestyle{lstverb}
+  {
+    extendedchars=true,
+    inputencoding=utf8,
+    literate={é}{{\'e}}1 {è}{{\`e}}1 {ê}{{\^e}}1 {à}{{\`a{}}}1 {â}{{\^a}}1 {ç}{{\c c}}1,
+    backgroundcolor=\usebeamercolor[bg]{block body},
+    frameround=tttt, frame=trbl, framerule=0pt,
+    basicstyle=\scriptsize,
+    lineskip=-1pt,   % pour rapprocher les lignes
+    flexiblecolumns, 
+    escapechar=§
+  }
+\lstnewenvironment{Asm}[1][]{\lstset{style=lstverb,language={[x86masm]Assembler},#1}}{}
+\lstnewenvironment{Code}[1][]{\lstset{style=lstverb,#1}}{}
+\newcommand{\asm}{\lstinline[language={[x86masm]Assembler},basicstyle=\footnotesize\color{blue!70!black}]}
+\newcommand{\code}{\lstinline[basicstyle=\footnotesize\color{blue!70!black}]}
+
+% ===== Modifier l'emphase des textes
+\renewcommand{\emph}[1]{\textbf{\color{brown}{#1}}}
+
+% ===== Pour calculer la largeur d'un texte
+\usepackage{calc}
+
+% ===== bulle pour un texte en bulle ovale
+\newcommand{\bulle}[1]{
+	%\vspace{-1cm}
+	\hspace*{-5mm}
+	\begin{minipage}{\widthof{X#1X}}
+	\begin{exampleblock}{}
+	\hspace{1mm}#1
+	\end{exampleblock}
+	\end{minipage}
+	}
+
+% ===== Pour des fonds colorés dans des cellules de tableau
+%\usepackage[table]{xcolor}
+% Option de beamer
+
+% Hyperliens et URL
+% http://www.ctan.org/pkg/hyperref
+% -------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,  % Colours links instead of ugly boxes
+  urlcolor   = blue,  % Colour for external hyperlinks
+  linkcolor  = black  % Colour of internal links
+}
+
+% ===== Pour citer une source
+\newcommand{\source}[1]{\\\vskip-2mm\begin{tiny}source : #1\end{tiny}}
