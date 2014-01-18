@@ -13,8 +13,8 @@ Contenu
  3 - Modes réel et protégé : OK par ELV	
  4 - Interruptions : Nouvelle version par ELV
  5 - Le langage d'assemblage : slides de JCJ
- 6 - mode-adressage : par MCD (nouveau par rapport aux slides JCJ)
- 7 - codage-instruction : nouvelle version par MCD
+ 6 - Les modes d'adressages : par MCD (nouveau par rapport aux slides JCJ)
+ 7 - Le codage des instructions : nouvelle version par MCD
  8 - Cartographie RAM  : slides de JCJ
  9 - Démarrage : slides de JCJ
 10 - Coprocesseur mathématique : OK par ELV
