@@ -1,9 +1,10 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
-\lyxformat 345
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
 \begin_document
 \begin_header
 \textclass beamer
 \begin_preamble
+\usetheme{Warsaw}
 \usepackage{listings}
 %\lstloadlanguages{Assembler}
 % configuration code asm
@@ -14,18 +15,26 @@
 %\lstset{backgroundcolor=\color[gray]{.98}}
 \end_preamble
 \use_default_options true
+\maintain_unincluded_children false
 \language french
+\language_package default
 \inputencoding auto
+\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
+\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -33,27 +42,41 @@
 \use_geometry true
 \use_amsmath 1
 \use_esint 1
+\use_mhchem 1
+\use_mathdots 1
 \cite_engine basic
 \use_bibtopic false
+\use_indices false
 \paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\defskip medskip
+\paragraph_indentation default
 \quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
-\author "" 
-\author "" 
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
 \end_header
 
 \begin_body
 
 \begin_layout Title
-LMI: Mode réel et mode protégé
+Microprocesseurs (MIC)
+\end_layout
+
+\begin_layout Subtitle
+Chapitre 3 : Mode réel et mode protégé
 \end_layout
 
 \begin_layout Date
@@ -236,7 +259,7 @@ processeurs Intel fournissent
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
-<features>
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0">
 <column alignment="left" valignment="top" width="80text%">
 <row>
@@ -244,6 +267,8 @@ processeurs Intel fournissent
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Niveau
 \end_layout
 
@@ -253,6 +278,8 @@ Niveau
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Description
 \end_layout
 
@@ -264,6 +291,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 0
 \end_layout
 
@@ -273,6 +302,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes peuvent employer toutes les instructions du processeur et
  accéder à toute la mémoire centrale (employé pour le code de l'OS sous
  Windows et Linux)
@@ -286,6 +317,8 @@ Les programmes peuvent employer toutes les instructions du processeur et
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 1
 \end_layout
 
@@ -295,6 +328,8 @@ Les programmes peuvent employer toutes les instructions du processeur et
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes ne peuvent employer qu'un nombre réduit d'instructions
 \begin_inset Note Note
 status open
@@ -316,6 +351,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 2
 \end_layout
 
@@ -325,6 +362,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes ne peuvent employer qu'un nombre 
 \begin_inset Note Note
 status open
@@ -356,6 +395,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 3
 \end_layout
 
@@ -365,6 +406,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes ne peuvent employer qu'un nombre 
 \begin_inset Note Note
 status open
@@ -1139,7 +1182,7 @@ Chaque page du programme sera ensuite placée en mémoire à un endroit différe
 
 \begin_layout Itemize
 Ainsi, un même segment peut être divisé en plusieurs pages, situées à des
- endroits différentes de la mémoire
+ endroits différents de la mémoire
 \end_layout
 
 \begin_layout Itemize
@@ -1524,8 +1567,8 @@ status open
 \end_layout
 
 \begin_layout Itemize
-L’entrée i de la table contient l’adresse de la routine de gestionde l’interrupt
-ion n° i
+L’entrée i de la table contient l’adresse de la routine de gestion de l’interrup
+tion n° i
 \end_layout
 
 \begin_layout Itemize
@@ -1575,8 +1618,8 @@ status open
 \end_layout
 
 \begin_layout Itemize
-L’entrée i de la table contient l’adresse de la routine de gestionde l’interrupt
-ion n° i
+L’entrée i de la table contient l’adresse de la routine de gestion de l’interrup
+tion n° i
 \end_layout
 
 \begin_layout Itemize
@@ -1593,7 +1636,7 @@ texttt{(segment : offset)}
 
 \end_inset
 
- ont 2 byte pour le 
+ ont 2 bytes pour le 
 \begin_inset ERT
 status open
 
