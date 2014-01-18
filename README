@@ -7,12 +7,10 @@
 Contenu 
 -------
 
-0. Introduction (introduction)
-		Slides refaits par ELV
-1. Ouvrons un PC (ouvrons-pc)
-		Nouveaux slides par MCD
-2. Le cycle du µ-processeur (microprocesseur)
-		Nouvelle version par ELV (basé sur FPL)
+00 - Introduction : Slides refaits par ELV
+01 - Ouvrons un PC : Nouveaux slides par MCD
+02 - Le cycle du µ-processeur : Nouvelle version par ELV (basé sur FPL)
+
 3. Interruptions (interruption)
 		Nouvelle version par ELV
 4. Le langage d'assemblage	
