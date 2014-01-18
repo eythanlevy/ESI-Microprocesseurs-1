@@ -4,13 +4,30 @@
   Contact : elevy@heb.be
 ========================================================================
 
-Mise à jour des chapitres du cours
-----------------------------------
+Contenu 
+-------
 
-- Le cycle du microprocesseur + Interruptions: nouvelle version par ELV (incluant slides de FPL) (répertoire "microprocesseurs")
-- Mode réel protégé : OK par ELV
-- Démrrage d'une ordinateur : Rien depuis les slides de JCJ
-- Modes d'adressage : OK par MCD (nouveau par rapport aux slides JCJ)
-- Codage instructions:  nouvelle version par MCD (codage-instruction), qui remplace l'ancienne par ELV (instructions))
-- Coprocesseur : OK par ELV
-- Évolution des processeurs : Rien depuis les slides de JCJ
+0. Introduction (introduction)
+		Slides refaits par ELV
+1. Ouvrons un PC (ouvrons-pc)
+		Nouveaux slides par MCD
+2. Le cycle du µ-processeur (microprocesseur)
+		Nouvelle version par ELV (basé sur FPL)
+3. Interruptions (interruption)
+		Nouvelle version par ELV
+4. Le langage d'assemblage	
+		Rien. Reprendre les slides de JCJ
+5. Modes réel et protégé (mode-reel-protege)
+		Ancienne version par ELV
+		(rien sur la pagination)	
+6. Cartographie RAM 
+		Rien. Reprendre les slides de JCJ
+7. Démarrage
+		Rien. Reprendre les slides de JCJ
+8. Jeu d'instructions du x86
+		a) mode-adressage : par MCD (nouveau par rapport aux slides JCJ)
+		b) codage-instruction : nouvelle version par MCD
+9. Coprocesseur mathématique (co-processeur)
+		OK par ELV
+10. Évolution des processeurs
+		Rien depuis les slides de JCJ
