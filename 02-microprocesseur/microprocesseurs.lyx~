@@ -87,7 +87,7 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 1: Fonctionnement d’un microprocesseur
+Chapitre 2: Fonctionnement d’un microprocesseur
 \end_layout
 
 \begin_layout Date
@@ -208,7 +208,7 @@ Exemple de processeur simplifié
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../../../../../../../Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
+	filename /Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
 	width 12cm
 
 \end_inset
