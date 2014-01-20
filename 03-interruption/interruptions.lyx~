@@ -87,7 +87,7 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 2: Interruptions
+Chapitre 3 : Interruptions
 \end_layout
 
 \begin_layout Date
@@ -208,7 +208,7 @@ Exemple de processeur simplifié
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../../../../../../../Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
+	filename C:/Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
 	width 12cm
 
 \end_inset
@@ -330,7 +330,7 @@ Rappel: le cycle du processeur
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../microprocesseurs/images/cycles-CPU.png
+	filename ../02-microprocesseur/images/cycles-CPU.png
 	width 60theight%
 
 \end_inset
@@ -437,7 +437,7 @@ interrupt handler
 \end_layout
 
 \begin_layout Itemize
-Retour automatique au programme interrompu
+En général, reprise ultérieure du programme interrompu
 \end_layout
 
 \begin_layout BeginFrame
@@ -684,7 +684,7 @@ Cycle du processeur avec interruptions
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename images/cycles-CPU-interruptions.png
+	filename images/cycles-CPU-interruptions-2.png
 	width 85theight%
 
 \end_inset
@@ -813,7 +813,7 @@ INTR = INTerrupt Request
 \end_layout
 
 \begin_layout Itemize
-Signale au processeur l'arrivée d'une interruption externe
+Signale au processeur l'arrivée d'une interruption matérielle
 \end_layout
 
 \end_deeper
@@ -2069,6 +2069,26 @@ Table d'interruptions: schéma général
 \end_inset
 
 
+\end_layout
+
+\begin_layout BeginFrame
+Structure d'un handler (monoprogrammation)
+\end_layout
+
+\begin_layout Enumerate
+Sauver registres utilisés (sur pile)
+\end_layout
+
+\begin_layout Enumerate
+Traiter l'interruption
+\end_layout
+
+\begin_layout Enumerate
+Restaurer registres utilisés (àpd pile)
+\end_layout
+
+\begin_layout Enumerate
+IRET
 \end_layout
 
 \begin_layout BeginFrame
