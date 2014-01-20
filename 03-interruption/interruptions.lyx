@@ -87,7 +87,7 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 2: Interruptions
+Chapitre 3 : Interruptions
 \end_layout
 
 \begin_layout Date
@@ -208,7 +208,7 @@ Exemple de processeur simplifié
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../../../../../../../Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
+	filename /Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
 	width 12cm
 
 \end_inset
@@ -330,7 +330,7 @@ Rappel: le cycle du processeur
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../microprocesseurs/images/cycles-CPU.png
+	filename ../02-microprocesseur/images/cycles-CPU.png
 	width 60theight%
 
 \end_inset
@@ -530,7 +530,7 @@ Division par 0
 \end_layout
 
 \begin_layout Itemize
-Instruction inexistante
+Instruction inconnue
 \end_layout
 
 \begin_layout Itemize

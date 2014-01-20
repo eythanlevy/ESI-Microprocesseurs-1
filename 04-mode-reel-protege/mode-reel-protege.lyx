@@ -76,7 +76,7 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 3 : Mode réel et mode protégé
+Chapitre 4 : Mode réel et mode protégé
 \end_layout
 
 \begin_layout Date
@@ -267,6 +267,8 @@ processeurs Intel fournissent
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Niveau
 \end_layout
 
@@ -276,6 +278,8 @@ Niveau
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Description
 \end_layout
 
@@ -287,6 +291,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 0
 \end_layout
 
@@ -296,6 +302,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes peuvent employer toutes les instructions du processeur et
  accéder à toute la mémoire centrale (employé pour le code de l'OS sous
  Windows et Linux)
@@ -309,6 +317,8 @@ Les programmes peuvent employer toutes les instructions du processeur et
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 1
 \end_layout
 
@@ -318,6 +328,8 @@ Les programmes peuvent employer toutes les instructions du processeur et
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes ne peuvent employer qu'un nombre réduit d'instructions
 \begin_inset Note Note
 status open
@@ -339,6 +351,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 2
 \end_layout
 
@@ -348,6 +362,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes ne peuvent employer qu'un nombre 
 \begin_inset Note Note
 status open
@@ -379,6 +395,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 3
 \end_layout
 
@@ -388,6 +406,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Les programmes ne peuvent employer qu'un nombre 
 \begin_inset Note Note
 status open
@@ -1162,7 +1182,7 @@ Chaque page du programme sera ensuite placée en mémoire à un endroit différe
 
 \begin_layout Itemize
 Ainsi, un même segment peut être divisé en plusieurs pages, situées à des
- endroits différentes de la mémoire
+ endroits différents de la mémoire
 \end_layout
 
 \begin_layout Itemize
