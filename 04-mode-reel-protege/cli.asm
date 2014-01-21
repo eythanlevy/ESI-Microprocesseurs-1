@@ -1,9 +1,9 @@
 ; cli.asm
 
-global principal
+global main
 section .text
 
-principal:
+main:
   cli
 
 ; fin

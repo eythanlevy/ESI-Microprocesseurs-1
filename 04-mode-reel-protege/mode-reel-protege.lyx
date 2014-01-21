@@ -783,7 +783,7 @@ Attention, ici 10 est bien une adresse logique, et non la véritable adresse
 \end_layout
 
 \begin_layout Itemize
-AInsi, deux programmes différents peuvent effectuer un 
+Ainsi, deux programmes différents peuvent effectuer un 
 \begin_inset ERT
 status open
 
@@ -851,7 +851,7 @@ Cette table contient l'adresse et la taille de chaque segment, ainsi qu'une
 \end_layout
 
 \begin_layout Itemize
-Les informations de la table des segments permettent d'empêcher à un programme
+Les informations de la table des segments permettent d'empêcher un programme
  d'accéder aux segments d'un autre programme (protection de la mémoire)
 \end_layout
 
@@ -1263,7 +1263,7 @@ Ces adresses doivent donc être traduites en adresses physiques (segmentation,
 \end_layout
 
 \begin_layout Itemize
-Cette traduction d'adresse se fait grâce à un puce particulière appelée
+Cette traduction d'adresse se fait grâce à une puce particulière appelée
  
 \series bold
 MMU
