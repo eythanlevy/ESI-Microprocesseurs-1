@@ -43,7 +43,7 @@
 
 \graphics default
 \default_output_format default
-\output_sync 0
+\output_sync 1
 \bibtex_command default
 \index_command default
 \paperfontsize default
@@ -87,7 +87,15 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 3 : Interruptions
+Chapitre 3
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+Interruptions
 \end_layout
 
 \begin_layout Date
@@ -170,7 +178,7 @@ Les Processeurs
 \end_layout
 
 \begin_layout Itemize
-Le processeur est le composant de l'ordinateur qui exécute les programmes
+Le processeur est le composant de l’ordinateur qui exécute les programmes
  informatiques
 \end_layout
 
@@ -187,7 +195,7 @@ Central Processing Unit
 \end_layout
 
 \begin_layout Itemize
-Microprocesseur: processeur dont les composants sont regroupés en un seul
+Microprocesseur : processeur dont les composants sont regroupés en un seul
  circuit
 \end_layout
 
@@ -221,7 +229,7 @@ Exemple de processeur simplifié
 \end_layout
 
 \begin_layout BeginFrame
-Composantes d'un processeur
+Composantes d’un processeur
 \end_layout
 
 \begin_layout Itemize
@@ -234,7 +242,7 @@ Commande et contrôle le fonctionnement du processeur (
 \begin_inset Quotes fld
 \end_inset
 
-chef d'orchestre
+chef d’orchestre
 \begin_inset Quotes frd
 \end_inset
 
@@ -248,8 +256,8 @@ Unité arithmétique et logique (UAL)
 
 \begin_deeper
 \begin_layout Itemize
-Réalise les calculs arithmétiques et logiques (+, *, /, ...
- et AND, OR, XOR, ...)
+Réalise les calculs arithmétiques et logiques (+, *, /, … et AND, OR, XOR,
+ …)
 \end_layout
 
 \end_deeper
@@ -259,7 +267,7 @@ Registre IP
 
 \begin_deeper
 \begin_layout Itemize
-Contient l'adresse de l'instruction 
+Contient l’adresse de l’instruction 
 \series bold
 suivante
 \series default
@@ -273,7 +281,7 @@ Registre RI
 
 \begin_deeper
 \begin_layout Itemize
-Contient l'instruction exécutée actuellement
+Contient l’instruction exécutée actuellement
 \end_layout
 
 \end_deeper
@@ -324,7 +332,15 @@ Connecte IP, RI et la RAM, permet le transit des adresses-mémoire
 \end_layout
 
 \begin_layout BeginFrame
-Rappel: le cycle du processeur
+Rappel
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+le cycle du processeur
 \end_layout
 
 \begin_layout Standard
@@ -348,16 +364,27 @@ Le cycle du processeur vu exécute tout un processus en une fois
 
 \begin_deeper
 \begin_layout Itemize
-Quid si un événement extérieur ? (frappe au clavier, click souris...) 
+Quid si un événement extérieur
+\begin_inset space ~
+\end_inset
+
+? (frappe au clavier, click souris…) 
 \end_layout
 
 \begin_layout Itemize
-Quid si erreur d'exécution ? (instruction inconnue, division par 0...)
+Quid si erreur d’exécution
+\begin_inset space ~
+\end_inset
+
+? (instruction inconnue, division par 0…)
 \end_layout
 
 \begin_layout Itemize
-Quid du dialogue avec le système ? (appel système, scheduling de processus...)
- 
+Quid du dialogue avec le système
+\begin_inset space ~
+\end_inset
+
+? (appel système, scheduling de processus…) 
 \end_layout
 
 \end_deeper
@@ -390,21 +417,49 @@ Le polling (scrutation)
 \end_layout
 
 \begin_layout Itemize
-Exemple: traitement de texte
+Exemple
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+traitement de texte
 \end_layout
 
 \begin_layout Itemize
-Comment détecter une frappe au clavier sans interruptions?
+Comment détecter une frappe au clavier sans interruption
+\begin_inset space ~
+\end_inset
+
+?
 \end_layout
 
 \begin_layout Itemize
-Seule solution: le 
+Seule solution
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+le 
 \emph on
 polling
 \end_layout
 
 \begin_layout Itemize
-Problème: attente active
+Problème
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+attente active
 \end_layout
 
 \end_deeper
@@ -417,11 +472,11 @@ Interruption automatique du processus en cours
 \end_layout
 
 \begin_layout Itemize
-Exécution d'une 
+Exécution d’une 
 \begin_inset Quotes fld
 \end_inset
 
-routine de traitement d'interruption
+routine de traitement d’interruption
 \begin_inset Quotes frd
 \end_inset
 
@@ -441,7 +496,7 @@ En général, reprise ultérieure du programme interrompu
 \end_layout
 
 \begin_layout BeginFrame
-Types d'interruptions
+Types d’interruptions
 \end_layout
 
 \begin_layout Itemize
@@ -470,7 +525,7 @@ Appels-système
 
 \begin_deeper
 \begin_layout Itemize
-Provoquées par un programme, pour demander un service à l'O.S.
+Provoquées par un programme, pour demander un service à l’O.S.
 \end_layout
 
 \end_deeper
@@ -479,7 +534,11 @@ Interruptions matérielles
 \end_layout
 
 \begin_layout Itemize
-Exemples:
+Exemples
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
@@ -488,7 +547,7 @@ Frappe sur le clavier
 \end_layout
 
 \begin_layout Itemize
-Arrivée d'un paquet sur le réseau
+Arrivée d’un paquet sur le réseau
 \end_layout
 
 \begin_layout Itemize
@@ -521,7 +580,11 @@ Exceptions
 \end_layout
 
 \begin_layout Itemize
-Exemples:
+Exemples
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
@@ -555,11 +618,11 @@ ldots
 status collapsed
 
 \begin_layout BeginFrame
-Interruptions - sauvegarde
+Interruptions − sauvegarde
 \end_layout
 
 \begin_layout Itemize
-Avant le traitement de l'interruption
+Avant le traitement de l’interruption
 \end_layout
 
 \begin_deeper
@@ -572,17 +635,17 @@ IP
 \begin_inset Formula $\longleftarrow$
 \end_inset
 
- adresse de la routine de gestion de l'interruption
+ adresse de la routine de gestion de l’interruption
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Après le traitement de l'interruption
+Après le traitement de l’interruption
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Restaurer l'ancienne valeur de IP
+Restaurer l’ancienne valeur de IP
 \end_layout
 
 \end_deeper
@@ -596,7 +659,11 @@ Appels-système
 \end_layout
 
 \begin_layout Itemize
-Exemples:
+Exemples
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
@@ -605,7 +672,7 @@ Demande de lecture sur fichier
 \end_layout
 
 \begin_layout Itemize
-Demande d'écriture sur fichier
+Demande d’écriture sur fichier
 \end_layout
 
 \begin_layout Itemize
@@ -626,7 +693,7 @@ ldots
 
 \end_deeper
 \begin_layout BeginFrame
-Numéros d'interruptions (80386)
+Numéros d’interruptions (80386)
 \end_layout
 
 \begin_layout Itemize
@@ -646,30 +713,70 @@ vecteur
 \end_layout
 
 \begin_layout Itemize
-0-31: réservés pour des exceptions
+0-31
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+réservés pour des exceptions
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-0: division par 0
+0
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+division par 0
 \end_layout
 
 \begin_layout Itemize
-6: opcode non-défini
+6
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+opcode non-défini
 \end_layout
 
 \begin_layout Itemize
-...
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-32-255:
+32-255
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Définis par l'OS
+Définis par l’OS
 \end_layout
 
 \begin_layout Itemize
@@ -809,16 +916,24 @@ status open
 \end_layout
 
 \begin_layout Itemize
-INTR = INTerrupt Request
+INTR
+\begin_inset space ~
+\end_inset
+
+=
+\begin_inset space ~
+\end_inset
+
+INTerrupt Request
 \end_layout
 
 \begin_layout Itemize
-Signale au processeur l'arrivée d'une interruption matérielle
+Signale au processeur l’arrivée d’une interruption matérielle
 \end_layout
 
 \end_deeper
 \begin_layout BeginFrame
-Le contrôleur d'interruptions
+Le contrôleur d’interruptions
 \end_layout
 
 \begin_layout Columns
@@ -1012,7 +1127,7 @@ status open
 
 \end_inset
 
-Or plusieurs sources potentielles d'interruptions
+Or plusieurs sources potentielles d’interruptions
 \end_layout
 
 \begin_layout Itemize
@@ -1046,10 +1161,18 @@ status open
 
 Rôle du 
 \series bold
-Contrôleur d'interruptions 
+Contrôleur d’interruptions 
 \series default
-(PIC: 
+(PIC
+\begin_inset space ~
+\end_inset
+
+:
 \emph on
+
+\begin_inset space ~
+\end_inset
+
 Programmable Interrupt Controller
 \emph default
 )
@@ -1080,12 +1203,20 @@ status open
 
 \end_inset
 
-Exemple: Intel 8259
+Exemple
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+Intel 8259
 \end_layout
 
 \end_deeper
 \begin_layout BeginFrame
-Le contrôleur d'interruptions
+Le contrôleur d’interruptions
 \end_layout
 
 \begin_layout Columns
@@ -1312,7 +1443,7 @@ status open
 
 \end_inset
 
-Envoie les demandes d'interruptions une par une au CPU (borne INT)
+Envoie les demandes d’interruptions une par une au CPU (borne INT)
 \end_layout
 
 \begin_layout Itemize
@@ -1340,8 +1471,16 @@ status open
 
 \end_inset
 
-PIC= 
+PIC
+\begin_inset space ~
+\end_inset
+
+=
 \emph on
+
+\begin_inset space ~
+\end_inset
+
 Programmable Interrupt Controller
 \end_layout
 
@@ -1531,7 +1670,7 @@ IRQ1 – clavier
 \end_layout
 
 \begin_layout Itemize
-IRQ2 – mise en cascade d'un 2
+IRQ2 – mise en cascade d’un 2
 \begin_inset ERT
 status open
 
@@ -1719,12 +1858,12 @@ status open
 \end_layout
 
 \begin_layout Itemize
-Permet d'augmenter le nombre d'IRQ
+Permet d’augmenter le nombre d’IRQ
 \end_layout
 
 \end_deeper
 \begin_layout BeginFrame
-Déroulement d'une interruption
+Déroulement d’une interruption
 \end_layout
 
 \begin_layout Columns
@@ -1987,7 +2126,7 @@ status open
 
 \end_inset
 
-Arrivée de l'interruption sur INTR
+Arrivée de l’interruption sur INTR
 \end_layout
 
 \begin_layout Itemize
@@ -2028,20 +2167,20 @@ no{}
 
 \end_inset
 
- d'interruption sur bus de données
+ d’interruption sur bus de données
 \end_layout
 
 \end_deeper
 \begin_layout BeginFrame
-Table d'interruptions
+Table d’interruptions
 \end_layout
 
 \begin_layout Itemize
-Contient les adresses des handlers d'interruptions
+Contient les adresses des handlers d’interruptions
 \end_layout
 
 \begin_layout Itemize
-Indexée par le numéro d'interruption
+Indexée par le numéro d’interruption
 \end_layout
 
 \begin_layout Itemize
@@ -2049,15 +2188,31 @@ Dans la RAM
 \end_layout
 
 \begin_layout Itemize
-Gérée par l'OS
+Gérée par l’OS
 \end_layout
 
 \begin_layout Itemize
-Détails: leçon ultérieure et cours de Systèmes
+Détails
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+leçon ultérieure et cours de Systèmes
 \end_layout
 
 \begin_layout BeginFrame
-Table d'interruptions: schéma général
+Table d’interruptions
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+schéma général
 \end_layout
 
 \begin_layout Standard
@@ -2072,7 +2227,7 @@ Table d'interruptions: schéma général
 \end_layout
 
 \begin_layout BeginFrame
-Structure d'un handler (monoprogrammation)
+Structure d’un handler (monoprogrammation)
 \end_layout
 
 \begin_layout Enumerate
@@ -2080,7 +2235,7 @@ Sauver registres utilisés (sur pile)
 \end_layout
 
 \begin_layout Enumerate
-Traiter l'interruption
+Traiter l’interruption
 \end_layout
 
 \begin_layout Enumerate
@@ -2092,15 +2247,15 @@ IRET
 \end_layout
 
 \begin_layout BeginFrame
-L'instruction IRET
+L’instruction IRET
 \end_layout
 
 \begin_layout Itemize
-Exécutée en fin de handler d'interruption
+Exécutée en fin de handler d’interruption
 \end_layout
 
 \begin_layout Itemize
-Restaure automatiquement l'ancien EIP
+Restaure automatiquement l’ancien EIP
 \end_layout
 
 \begin_layout Itemize
@@ -2120,15 +2275,39 @@ SI IF=1, le CPU est interruptible
 \end_layout
 
 \begin_layout Itemize
-CLI: instruction pour mettre IF à 0
+CLI
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+instruction pour mettre IF à 0
 \end_layout
 
 \begin_layout Itemize
-STI : instruction pour mettre IF à 1
+STI
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+instruction pour mettre IF à 1
 \end_layout
 
 \begin_layout Itemize
-CLI/STI: utilisés par l'OS
+CLI/STI
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+utilisés par l’OS
 \end_layout
 
 \begin_layout Standard
