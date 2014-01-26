@@ -76,7 +76,15 @@ Microprocesseurs (MIC)
 \end_layout
 
 \begin_layout Subtitle
-Chapitre 4 : Mode réel et mode protégé
+Chapitre 4
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+Mode réel et mode protégé
 \end_layout
 
 \begin_layout Date
@@ -99,21 +107,37 @@ Le système MS-DOS travaillait dans ce mode
 \end_layout
 
 \begin_layout Itemize
-Risques de sécurité:
+Risques de sécurité
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Un programme peut modifier les données d'un autre programme
+Un programme peut modifier les données d’un autre programme
 \end_layout
 
 \begin_layout Itemize
-Un programme peut même modifier les données du système d'exploitation !
+Un programme peut même modifier les données du système d'exploitation
+\begin_inset space ~
+\end_inset
+
+!
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Solution: introduction du 
+Solution
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+introduction du 
 \begin_inset Quotes fld
 \end_inset
 
@@ -157,7 +181,11 @@ mode protégé
 \end_layout
 
 \begin_layout Itemize
-Ce mode offre des protections à deux niveaux:
+Ce mode offre des protections à deux niveaux
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
@@ -209,11 +237,11 @@ en anglais)
 \end_layout
 
 \begin_layout Itemize
-A tout moment, le processeur travaille dans un des quatre niveaux de protection
+À tout moment, le processeur travaille dans un des quatre niveaux de protection
 \end_layout
 
 \begin_layout Itemize
-A certains moments-clé, le processeur change de niveau de protection
+À certains moments-clés, le processeur change de niveau de protection
 \end_layout
 
 \begin_layout Column
@@ -243,7 +271,7 @@ Les quatre anneaux de protection du mode protégé
 \begin_layout Itemize
 Les 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 processeurs Intel fournissent 
@@ -305,7 +333,7 @@ Description
 
 \size small
 Les programmes peuvent employer toutes les instructions du processeur et
- accéder à toute la mémoire centrale (employé pour le code de l'OS sous
+ accéder à toute la mémoire centrale (employé pour le code de l’OS sous
  Windows et Linux)
 \end_layout
 
@@ -330,7 +358,7 @@ Les programmes peuvent employer toutes les instructions du processeur et
 \begin_layout Plain Layout
 
 \size small
-Les programmes ne peuvent employer qu'un nombre réduit d'instructions
+Les programmes ne peuvent employer qu'un nombre réduit d’instructions
 \begin_inset Note Note
 status open
 
@@ -340,7 +368,7 @@ status open
 
 \end_inset
 
-, et n'ont pas accès à toute la mémoire (non employé sous Windows et Linux)
+, et n’ont pas accès à toute la mémoire (non employé sous Windows et Linux)
 \end_layout
 
 \end_inset
@@ -364,7 +392,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-Les programmes ne peuvent employer qu'un nombre 
+Les programmes ne peuvent employer qu’un nombre 
 \begin_inset Note Note
 status open
 
@@ -408,7 +436,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-Les programmes ne peuvent employer qu'un nombre 
+Les programmes ne peuvent employer qu’un nombre 
 \begin_inset Note Note
 status open
 
@@ -418,7 +446,7 @@ encore plus
 
 \end_inset
 
-réduit d'instructions
+réduit d’instructions
 \begin_inset Note Note
 status open
 
@@ -428,7 +456,7 @@ status open
 
 \end_inset
 
-, et n'ont pas accès à toute la mémoire (employé par les programmes utilisateurs
+, et n’ont pas accès à toute la mémoire (employé par les programmes utilisateurs
  sous Windows et Linux) 
 \end_layout
 
@@ -481,7 +509,7 @@ Niveau 3: les programmes ont moins de droits qu'aux autres niveaux (ils
 \end_layout
 
 \begin_layout BeginFrame
-Exemple d'emploi d'une instruction interdite
+Exemple d’emploi d’une instruction interdite
 \end_layout
 
 \begin_layout Columns
@@ -499,11 +527,11 @@ L’instruction CLI sert à suspendre les interruptions en mettant le flag
 \end_layout
 
 \begin_layout Itemize
-Elle n'est permise qu'en ring 0, donc seul l'OS peut l'employer
+Elle n’est permise qu’en ring 0, donc seul l’OS peut l'employer
 \end_layout
 
 \begin_layout Itemize
-L'exemple suivant montre un essai d'utilisation de CLI dans un programme
+L’exemple suivant montre un essai d’utilisation de CLI dans un programme
  utilisateur
 \end_layout
 
@@ -541,21 +569,28 @@ Le mode réel
 \end_layout
 
 \begin_layout Itemize
-Malgré l'introduction du mode protégé, les processeurs 80286 et suivants
- peuvent encore travailler dans le mode précédent, non-protégé: il s'agit
- du 
+Malgré l’introduction du mode protégé, les processeurs 80286 et suivants
+ peuvent encore travailler dans le mode précédent, non-protégé
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+il s’agit du 
 \emph on
 mode réel
 \end_layout
 
 \begin_layout Itemize
-Ce mode permet notamment d'exécuter des vieux OS comme MS-DOS, qui n'étaient
+Ce mode permet notamment d’exécuter des vieux OS comme MS-DOS, qui n’étaient
  pas prévus pour le mode protégé
 \end_layout
 
 \begin_layout Itemize
-En réalité, lors de l'allumage de l'ordinateur, le processeur commence toujours
- à fonctionner en mode réel, puis l'OS le fait passer en mode protégé
+En réalité, lors de l’allumage de l'ordinateur, le processeur commence toujours
+ à fonctionner en mode réel, puis l’OS le fait passer en mode protégé
 \end_layout
 
 \begin_layout Itemize
@@ -564,7 +599,10 @@ En mode réel, la taille totale de la mémoire est limitée à 1 Mb (
 \end_inset
 
  bytes), et tous les programmes peuvent y écrire partout sans protection
- !
+\begin_inset space ~
+\end_inset
+
+!
 \end_layout
 
 \begin_layout EndFrame
@@ -576,7 +614,11 @@ La gestion de la mémoire en mode protégé
 \end_layout
 
 \begin_layout Itemize
-Le mode protégé emploie 3 types d'adresses:
+Le mode protégé emploie 3 types d'adresses
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
@@ -585,8 +627,15 @@ Les adresses
 \emph on
 logiques
 \emph default
-: les adresses employées dans vos programmes assembleur, et vues par le
- processeur
+
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+les adresses employées dans vos programmes assembleur, et vues par le processeur
 \end_layout
 
 \begin_layout Enumerate
@@ -594,8 +643,16 @@ Les adresses
 \emph on
 linéaires
 \emph default
-: issues d'une traduction des adresses logiques au travers du processus
- de 
+
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+issues d’une traduction des adresses logiques au travers du processus de
+ 
 \emph on
 segmentation
 \end_layout
@@ -605,7 +662,15 @@ Les adresses
 \emph on
 physiques
 \emph default
-: véritables adresses de la mémoire centrale
+
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+véritables adresses de la mémoire centrale
 \end_layout
 
 \end_deeper
@@ -627,18 +692,29 @@ sont celles employées dans vos programmes assembleur, et visibles notamment
 \end_layout
 
 \begin_layout Itemize
-Expérience: exécutez deux fois le même programme en même temps sur linux1
- et comparez les adresses grâce à Kdbg
+Expérience
+\begin_inset space ~
+\end_inset
+
+: exécutez deux fois le même programme en même temps sur linux1 et comparez
+ les adresses grâce à Kdbg
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Les deux programmes emploient les mêmes adresses !
+Les deux programmes emploient les mêmes adresses
+\begin_inset space ~
+\end_inset
+
+!
 \end_layout
 
 \begin_layout Itemize
-Or deux programmes ne peuvent occupper simultanément le même espace en mémoire
- !
+Or deux programmes ne peuvent occuper simultanément le même espace en mémoire
+\begin_inset space ~
+\end_inset
+
+!
 \end_layout
 
 \begin_layout Itemize
@@ -704,7 +780,7 @@ Ainsi les différents programmes ne se marcheront pas sur les pieds, même
 \end_layout
 
 \begin_layout BeginFrame
-Adresses logique et MOV
+Adresses logiques et MOV
 \begin_inset Note Note
 status collapsed
 
@@ -718,7 +794,11 @@ Le MOV vers la mémoire centrale
 \end_layout
 
 \begin_layout Itemize
-Introduisons une nouvelle variante du MOV, pas encore vue au labo: 
+Introduisons une nouvelle variante du MOV, pas encore vue au labo
+\begin_inset space ~
+\end_inset
+
+: 
 \begin_inset ERT
 status open
 
@@ -750,7 +830,15 @@ Cette instruction place une valeur à l'adresse-mémoire spécifiée entre croch
 \end_layout
 
 \begin_layout Itemize
-Exemple: l'instruction 
+Exemple
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+l’instruction 
 \begin_inset ERT
 status open
 
@@ -774,12 +862,16 @@ status open
 
 \end_inset
 
- place la valeur de AX en mémoire centrale à l'adresse logique 10
+ place la valeur de AX en mémoire centrale à l’adresse logique 10
 \end_layout
 
 \begin_layout Itemize
 Attention, ici 10 est bien une adresse logique, et non la véritable adresse
- physique à laquelle sera placé le contenu de AX ! 
+ physique à laquelle sera placé le contenu de AX
+\begin_inset space ~
+\end_inset
+
+! 
 \end_layout
 
 \begin_layout Itemize
@@ -807,7 +899,7 @@ status open
 
 \end_inset
 
- sans se marcher sur les pieds, car l'OS traduira leur deux adresses 
+ sans se marcher sur les pieds, car l’OS traduira leurs deux adresses 
 \begin_inset Quotes fld
 \end_inset
 
@@ -827,14 +919,14 @@ Segmentation
 \end_layout
 
 \begin_layout Itemize
-En mode protégé, la mémoire d'un programme est divisée en morceaux appelés
+En mode protégé, la mémoire d’un programme est divisée en morceaux appelés
  des 
 \emph on
 segments
 \end_layout
 
 \begin_layout Itemize
-Chaque segment d'un programme peut être situé à un endroit différent de
+Chaque segment d’un programme peut être situé à un endroit différent de
  la mémoire centrale
 \end_layout
 
@@ -846,13 +938,13 @@ table des segments
 \end_layout
 
 \begin_layout Itemize
-Cette table contient l'adresse et la taille de chaque segment, ainsi qu'une
+Cette table contient l’adresse et la taille de chaque segment, ainsi qu’une
  information disant à quel programme appartient le segment
 \end_layout
 
 \begin_layout Itemize
-Les informations de la table des segments permettent d'empêcher un programme
- d'accéder aux segments d'un autre programme (protection de la mémoire)
+Les informations de la table des segments permettent d’empêcher un programme
+ d’accéder aux segments d’un autre programme (protection de la mémoire)
 \end_layout
 
 \begin_layout EndFrame
@@ -860,7 +952,7 @@ Les informations de la table des segments permettent d'empêcher un programme
 \end_layout
 
 \begin_layout BeginFrame
-Segments typiques d'un programme
+Segments typiques d’un programme
 \end_layout
 
 \begin_layout Itemize
@@ -868,7 +960,15 @@ Segments typiques d'un programme
 \series bold
 Segment de code
 \series default
-: contient les instructions du programme
+
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+contient les instructions du programme
 \end_layout
 
 \begin_layout Itemize
@@ -876,7 +976,15 @@ Segment de code
 \series bold
 Segment de données
 \series default
-: contient les variables globales du programme (voir labo)
+
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+contient les variables globales du programme (voir labo)
 \end_layout
 
 \begin_layout Itemize
@@ -884,7 +992,15 @@ Segment de données
 \series bold
 Segment de pile
 \series default
-: contient les variables locales du programme
+
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+contient les variables locales du programme
 \end_layout
 
 \begin_layout EndFrame
@@ -904,7 +1020,7 @@ CS
 \emph on
 code selector
 \emph default
-) permet de retrouver l'adresse du segment de code dans la table des segments
+) permet de retrouver l’adresse du segment de code dans la table des segments
 \end_layout
 
 \begin_layout Itemize
@@ -916,7 +1032,7 @@ DS
 \emph on
 data selector
 \emph default
-) permet de retrouver l'adresse du segment de données dans la table des
+) permet de retrouver l’adresse du segment de données dans la table des
  segments
 \end_layout
 
@@ -929,7 +1045,7 @@ SS
 \emph on
 stack selector
 \emph default
-) permet de retrouver l'adresse du segment de pile dans la table des segments
+) permet de retrouver l’adresse du segment de pile dans la table des segments
 \end_layout
 
 \begin_layout Standard
@@ -948,11 +1064,11 @@ où
 \series bold
 dans la table des segments 
 \series default
-on doit aller chercher l'adresse du segment correspondant
+on doit aller chercher l’adresse du segment correspondant
 \end_layout
 
 \begin_layout Itemize
-D'autres registres de segment existent (ES,FS,GS)
+D’autres registres de segment existent (ES,FS,GS)
 \end_layout
 
 \begin_layout EndFrame
@@ -960,7 +1076,7 @@ D'autres registres de segment existent (ES,FS,GS)
 \end_layout
 
 \begin_layout BeginFrame
-Traduction de l'adresse logique en adresse linéaire
+Traduction de l’adresse logique en adresse linéaire
 \end_layout
 
 \begin_layout Itemize
@@ -976,7 +1092,7 @@ rapport au début de leur segment
 \end_layout
 
 \begin_layout Itemize
-Il faut donc rajouter à chaque adresse logique l'adresse du début du segment
+Il faut donc rajouter à chaque adresse logique l’adresse du début du segment
  correspondant
 \end_layout
 
@@ -987,7 +1103,11 @@ Adresse linéaire = adresse du début du segment + adresse logique
 \end_layout
 
 \begin_layout Itemize
-Exemple: 
+Exemple
+\begin_inset space ~
+\end_inset
+
+: 
 \end_layout
 
 \begin_deeper
@@ -1147,12 +1267,12 @@ data selector
 \end_layout
 
 \begin_layout Itemize
-On obtient l'adresse de début du segment de données grâce au registre DS
+On obtient l’adresse de début du segment de données grâce au registre DS
  et à la table des segments
 \end_layout
 
 \begin_layout Itemize
-On rajoute cette adresse à 10 pour obtenir l'adresse linéaire
+On rajoute cette adresse à 10 pour obtenir l’adresse linéaire
 \end_layout
 
 \end_deeper
@@ -1165,7 +1285,7 @@ La pagination
 \end_layout
 
 \begin_layout Itemize
-La pagination est un deuxième mécanisme de gestion de la mémoire offerts
+La pagination est un deuxième mécanisme de gestion de la mémoire offert
  par le processeur Intel 80386
 \end_layout
 
@@ -1191,7 +1311,11 @@ Les adresses linéaires doivent donc elles-mêmes être traduites pour retrouver
 \series bold
 adresses physiques
 \series default
- !
+
+\begin_inset space ~
+\end_inset
+
+!
 \end_layout
 
 \begin_layout EndFrame
@@ -1208,7 +1332,7 @@ La pagination (contrairement à la segmentation) peut être désactivée dans
 \end_layout
 
 \begin_layout Itemize
-Si on n'emploie pas de pagination, les adresses linéaires et les adresses
+Si on n’emploie pas de pagination, les adresses linéaires et les adresses
  physiques sont égales
 \end_layout
 
@@ -1217,7 +1341,7 @@ Nous ne verrons pas en détail cette année le fonctionnement de la pagination
 \end_layout
 
 \begin_layout Itemize
-La pagination est fortement utilisée par les systèmes d'exploitation modernes,
+La pagination est fortement utilisée par les systèmes d’exploitation modernes,
  dont Linux
 \end_layout
 
@@ -1230,7 +1354,7 @@ La pagination est fortement utilisée par les systèmes d'exploitation modernes,
 \end_layout
 
 \begin_layout BeginFrame
-Récapitulatif des étapes de traduction d'adresses
+Récapitulatif des étapes de traduction d’adresses
 \end_layout
 
 \begin_layout Standard
@@ -1249,17 +1373,17 @@ Récapitulatif des étapes de traduction d'adresses
 \end_layout
 
 \begin_layout BeginFrame
-Le processeur et la traduction d'adresses
+Le processeur et la traduction d’adresses
 \end_layout
 
 \begin_layout Itemize
-Le processeur n'utilise que des adresses logiques dans ces registres (EIP,
- ...)
+Le processeur n’utilise que des adresses logiques dans ces registres (EIP,
+ …)
 \end_layout
 
 \begin_layout Itemize
 Ces adresses doivent donc être traduites en adresses physiques (segmentation,
- pagination) avant d'accéder véritablement à la mémoire
+ pagination) avant d’accéder véritablement à la mémoire
 \end_layout
 
 \begin_layout Itemize
@@ -1289,7 +1413,7 @@ Unité de Gestion de la Mémoire
 \end_layout
 
 \begin_layout BeginFrame
-Le processeur et la traduction d'adresses (II)
+Le processeur et la traduction d’adresses (II)
 \end_layout
 
 \begin_layout Standard
@@ -1368,8 +1492,12 @@ Adresse physique = adresse de début du segment*16 + offset
 \end_layout
 
 \begin_layout Itemize
-L'adresse de début du segment et l'offset sont sur 16 bits, ce qui donne
- une adresse totale sur 20 bits:
+L’adresse de début du segment et l’offset sont sur 16 bits, ce qui donne
+ une adresse totale sur 20 bits
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -1402,11 +1530,11 @@ Tout programme peut accéder à n'importe quelle adresse physique en choisissant
 \end_layout
 
 \begin_layout Itemize
-Il n'y a pas de table des segments
+Il n’y a pas de table des segments
 \end_layout
 
 \begin_layout Itemize
-Les registres CS, DS, SS sont associés au code, aux données, et à la pile,
+Les registres CS, DS, SS sont associés au code, aux données et à la pile,
  comme en mode protégé
 \end_layout
 
@@ -1424,7 +1552,7 @@ Mode réel et segmentation (III)
 \end_layout
 
 \begin_layout Itemize
-Exemple d'un programme en mode réel qui définit son propre segment grâce
+Exemple d’un programme en mode réel qui définit son propre segment grâce
  au registre ES, la segmentation ne contient aucun mécanisme de protection
  de la mémoire
 \end_layout
@@ -1467,7 +1595,15 @@ Mode interruptions
 \end_layout
 
 \begin_layout Itemize
-Rappel: la 
+Rappel
+\begin_inset space ~
+\end_inset
+
+:
+\begin_inset space ~
+\end_inset
+
+la 
 \series bold
 table des interruptions
 \series default
@@ -1477,11 +1613,11 @@ table des interruptions
 
 \begin_layout Itemize
 Cette table se trouve dans la mémoire centrale, dans une zone réservée appartena
-nt au système d'exploitation
+nt au système d’exploitation
 \end_layout
 
 \begin_layout Itemize
-Selon qu'on est en mode réel ou protégé, cette table est gérée de façon
+Selon qu’on est en mode réel ou protégé, cette table est gérée de façon
  différente
 \end_layout
 
@@ -1562,7 +1698,7 @@ status open
 \end_inset
 
  (i.e.
- l'adresse 0 dans le segment 0).
+ l’adresse 0 dans le segment 0).
  
 \end_layout
 
@@ -1667,7 +1803,7 @@ texttt{offset}
 
 \begin_layout Itemize
 Chaque entrée de la table des interruptions contient les 6 bytes de l'adresse
- de la routine de gestion, ainsi que 2 bytes supplémentaires contenant d'autres
+ de la routine de gestion, ainsi que 2 bytes supplémentaires contenant d’autres
  informations (donc 8 bytes en tout par entrée de la table)
 \end_layout
 
@@ -1710,7 +1846,11 @@ Référence
 
 \begin_layout Itemize
 Un article intéressant qui reprend en grande partie la matière de ce cours
- (pages 1 à 4):
+ (pages 1 à 4)
+\begin_inset space ~
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
