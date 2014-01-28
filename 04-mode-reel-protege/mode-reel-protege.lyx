@@ -1161,6 +1161,20 @@ On rajoute cette adresse à 10 pour obtenir l'adresse linéaire
 \end_layout
 
 \begin_layout BeginFrame
+La segmentation en mode protégé
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename segmentation.jpeg
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
 La pagination
 \end_layout
 
@@ -1219,10 +1233,6 @@ Nous ne verrons pas en détail cette année le fonctionnement de la pagination
 \begin_layout Itemize
 La pagination est fortement utilisée par les systèmes d'exploitation modernes,
  dont Linux
-\end_layout
-
-\begin_layout EndFrame
-
 \end_layout
 
 \begin_layout EndFrame
