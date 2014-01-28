@@ -1168,7 +1168,7 @@ La segmentation en mode protégé
 \begin_layout Standard
 \begin_inset Graphics
 	filename segmentation.jpeg
-	scale 35
+	scale 38
 
 \end_inset
 
@@ -1187,7 +1187,28 @@ status open
 
 
 \backslash
+cadre{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 begin{pseudo}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+LComment{Convertit une adresse logique (nom de registre + offset)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+LComment{en une adresse linéaire}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1208,18 +1229,18 @@ Gets gdtr + 8*reg.index
 
 \begin_layout Plain Layout
 
-  
+
 \backslash
-If{offset$
+If{
 \backslash
-ge$entréeGDT.taille}
+textit{on n'a pas les droits}}
 \end_layout
 
 \begin_layout Plain Layout
 
      
 \backslash
-error "On sort du segment"
+Error "Interdit !"
 \end_layout
 
 \begin_layout Plain Layout
@@ -1227,6 +1248,36 @@ error "On sort du segment"
   
 \backslash
 EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+If{offset $
+\backslash
+ge$ entréeGDT.taille}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+Error "On sort du segment"
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+Return entréeGDT.base + offset
 \end_layout
 
 \begin_layout Plain Layout
@@ -1241,6 +1292,11 @@ EndModule
 
 \backslash
 end{pseudo}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
