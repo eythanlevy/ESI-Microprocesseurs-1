@@ -1166,7 +1166,7 @@ La segmentation en mode protégé
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename segmentation.pdf
+	filename segmentation.jpeg
 	scale 35
 
 \end_inset
@@ -1233,10 +1233,6 @@ Nous ne verrons pas en détail cette année le fonctionnement de la pagination
 \begin_layout Itemize
 La pagination est fortement utilisée par les systèmes d'exploitation modernes,
  dont Linux
-\end_layout
-
-\begin_layout EndFrame
-
 \end_layout
 
 \begin_layout EndFrame

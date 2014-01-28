@@ -13,6 +13,7 @@
 %\lstset{tabsize=2}
 %\lstset{basicstyle=\footnotesize,keywordstyle=\bfseries,frame=single,framerule=.1pt}
 %\lstset{backgroundcolor=\color[gray]{.98}}
+\input{algoesi.sty}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -1168,6 +1169,79 @@ La segmentation en mode protégé
 \begin_inset Graphics
 	filename segmentation.jpeg
 	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Adresse logique vers linéaire
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pseudo}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Module{logiqueVersLinéaire}{reg: registre, offset: entier}{entier}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+Let entréeGDT 
+\backslash
+Gets gdtr + 8*reg.index
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+If{offset$
+\backslash
+ge$entréeGDT.taille}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+error "On sort du segment"
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+EndIf
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndModule 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pseudo}
+\end_layout
 
 \end_inset
 
