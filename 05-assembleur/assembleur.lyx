@@ -1,0 +1,1958 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usetheme{Warsaw}
+\usepackage{listings}
+%\lstloadlanguages{Assembler}
+% configuration code asm
+%\lstset{language=[x86masm]Assembler}
+%\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=8pt}
+%\lstset{tabsize=2}
+%\lstset{basicstyle=\footnotesize,keywordstyle=\bfseries,frame=single,framerule=.1pt}
+%\lstset{backgroundcolor=\color[gray]{.98}}
+\lstloadlanguages{c}
+
+\lstset{
+    language=c,
+    extendedchars=true
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Microprocesseurs (MIC)
+\end_layout
+
+\begin_layout Subtitle
+Chapitre 5 : Assembleurs
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Sommaire}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,currentsubsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout BeginFrame
+Les Processeurs
+\end_layout
+
+\begin_layout Itemize
+Le processeur est le composant de l'ordinateur qui exécute les programmes
+ informatiques
+\end_layout
+
+\begin_layout Itemize
+Aussi appelé 
+\emph on
+CPU
+\emph default
+ (
+\emph on
+Central Processing Unit
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+Microprocesseur: processeur dont les composants sont regroupés en un seul
+ circuit
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dès 1971 (Intel 4004)
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Exemple de processeur simplifié
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Dropbox/ESI/MIC/mes-slides/slides-complets/CPU.jpg
+	width 12cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Composantes d'un processeur
+\end_layout
+
+\begin_layout Itemize
+Unité de contrôle (UC)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Commande et contrôle le fonctionnement du processeur (
+\begin_inset Quotes fld
+\end_inset
+
+chef d'orchestre
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Unité arithmétique et logique (UAL)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Réalise les calculs arithmétiques et logiques (+, *, /, ...
+ et AND, OR, XOR, ...)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Registre IP
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Contient l'adresse de l'instruction 
+\series bold
+suivante
+\series default
+ à exécuter
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Registre RI
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Contient l'instruction exécutée actuellement
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Incrémenteur
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Incrémente la valeur de IP
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Horloge
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Synchronise les actions du processeur
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bus de données
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Connecte le CPU (ALU, registres, RI) avec la RAM et avec les contrôleurs
+ de périphériques
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bus d'adresse
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Connecte IP, RI et la RAM, permet le transit des adresses-mémoire
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+L'Assembleur
+\end_layout
+
+\begin_layout Itemize
+Le terme 
+\begin_inset Quotes fld
+\end_inset
+
+assembleur
+\begin_inset Quotes frd
+\end_inset
+
+ désigne:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Un langage de programmation
+\end_layout
+
+\begin_layout Itemize
+Le compilateur de ce langage
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+L'Assembleur (langage)
+\end_layout
+
+\begin_layout Itemize
+Langage de 
+\begin_inset Quotes fld
+\end_inset
+
+seconde génération
+\begin_inset Quotes frd
+\end_inset
+
+ :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+Première génération
+\begin_inset Quotes frd
+\end_inset
+
+ = code machine binaire
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Assembleur = forme de code machine humainement lisible:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nommage explicite des instructions (
+\emph on
+mnémoniques
+\emph default
+: MOV, ADD, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Nommage explicite des adresses du code (
+\emph on
+labels
+\emph default
+: main, if, else, ...)
+\end_layout
+
+\begin_layout Itemize
+Nommage explicite des adresses de données (
+\emph on
+variables
+\emph default
+:
+\emph on
+ 
+\emph default
+var
+\begin_inset space ~
+\end_inset
+
+DB
+\begin_inset space ~
+\end_inset
+
+5, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+L'Assembleur (langage)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/code-asm-1.png
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+L'Assembleur (langage)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/code-asm-2.png
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Assembleur vs code binaire (ex.
+ 80386)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="4cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Code ASM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Code machine (binaire)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+boucle: add bl, 10
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+jmp boucle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\longrightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+80 C3 0A
+\begin_inset Newline newline
+\end_inset
+
+EB FB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+10000000 11000011 00001010
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+11101011 11111011
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+L'assembleur est beaucoup plus facile à décrypter !
+\end_layout
+
+\begin_layout BeginFrame
+L'Assembleur (compilateur)
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Assembleur
+\emph default
+ = compilateur du langage Assembleur
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+
+\emph on
+Assemblage
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+ = compilation 
+\end_layout
+
+\begin_layout Itemize
+But: transformer le fichier source en code machine binaire
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mnémoniques traduites en instructions binaires (
+\emph on
+opcodes
+\emph default
+, voir chap.
+ 7)
+\end_layout
+
+\begin_layout Itemize
+Labels traduits en adresses (ou décalages)
+\end_layout
+
+\begin_layout Itemize
+Variables traduites en adresses
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+Assemblage et édition des liens
+\end_layout
+
+\begin_layout Itemize
+Utilisation possible de plusieurs fichiers sources pour produire un exécutable
+\end_layout
+
+\begin_layout Itemize
+Phase 1 : compilation de chaque fichier source 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+fichiers objets
+\end_layout
+
+\begin_layout Itemize
+Phase 2: édition des lien entre fichiers objets 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+fichier exécutable 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/compilation-edition-liens.png
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Avantages de l'assembleur
+\end_layout
+
+\begin_layout Itemize
+Contrôle fin du comportement du processeur
+\end_layout
+
+\begin_layout Itemize
+Permet une optimisation fine du code 
+\begin_inset Quotes fld
+\end_inset
+
+à la main
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Programmes de petite taille
+\end_layout
+
+\begin_layout Itemize
+Programmes rapides
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Mais requiert expertise importante du programmeur
+\end_layout
+
+\begin_layout BeginFrame
+Désavantages de l'assembleur
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+clarté du code
+\end_layout
+
+\begin_layout Itemize
+temps de développement
+\end_layout
+
+\begin_layout Itemize
+portabilité
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Clarté du code : le code ASM est moins lisible qu'un langage de plus haut
+ niveau (C, C++, Java, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Temps de développement: plus long car programmation plus complexe qu'en
+ langages de haut niveau
+\end_layout
+
+\begin_layout Itemize
+Portabilité : moins portable car jeu d'instruction différent pour chaque
+ processeur
+\end_layout
+
+\begin_layout BeginFrame
+Exemple: if-else
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="4cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Code ASM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Code Java
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+or dword[a], 0
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+jnz else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+mov dword[a], 6
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+jmp endif
+\end_layout
+
+\begin_layout Plain Layout
+else: mov dword[a], 7
+\end_layout
+
+\begin_layout Plain Layout
+endif:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+80 C3 0A
+\begin_inset Newline newline
+\end_inset
+
+EB FB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+
+\size small
+if(a == 0)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+a=6;
+\end_layout
+
+\begin_layout Plain Layout
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+a=7;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Exemple: while
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="4cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Code ASM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Code Java
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+tant_que: or dword[a], 0
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1.85cm}
+\end_layout
+
+\end_inset
+
+jnz fin_tq
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1.85cm}
+\end_layout
+
+\end_inset
+
+inc dword[a]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1.85cm}
+\end_layout
+
+\end_inset
+
+jmp tant_que
+\end_layout
+
+\begin_layout Plain Layout
+fin_tq:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+80 C3 0A
+\begin_inset Newline newline
+\end_inset
+
+EB FB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+while
+\size small
+(a 
+\begin_inset Formula $\neq$
+\end_inset
+
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+a=a+1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Dialecte AT&T et dialecte Intel
+\end_layout
+
+\begin_layout Itemize
+Deux dialectes différents pour l'assembleur x86: AT&T et Intel
+\end_layout
+
+\begin_layout Itemize
+Différences: ordre des opérateurs, spécifications de taille, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exemples:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Intel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AT&T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+mov eax, 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+movl $5, %eax 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+mov ax, 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+movw $5, %ax 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+mov al, 5 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+movb $5, %al 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+L'assembleur inline
+\end_layout
+
+\begin_layout Itemize
+Certains compilateurs permettent d'insérer du code ASM à l'intérieur d'un
+ programme en langage de haut niveau
+\end_layout
+
+\begin_layout Itemize
+Exemple en C avec le compilateur gcc (syntaxe AT&T):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{code/inline-asm-gcc.c}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Assembleur et performances
+\end_layout
+
+\begin_layout Itemize
+On dit souvent que les programmes en assembleur sont plus rapides
+\end_layout
+
+\begin_layout Itemize
+Pas toujours vrai:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dépend fortement des capacités du programmeur ASM
+\end_layout
+
+\begin_layout Itemize
+Les compilateurs actuels permettent de fortement optimiser le code
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ souvent code tout aussi rapide que l'assembleur
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Exemple d'omptimisation en C avec le compilateur gcc:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+gcc -o2 fichier_source.c
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+Applications classiques de l'assembleur
+\end_layout
+
+\begin_layout Itemize
+Code système:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Drivers, handlers d'interruptions, BIOS, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Certaines portions du kernel Linux sont encore en assembleur
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Micro-contrôleurs et systèmes embarqués:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mais de plus en plus remplacé par le langage C
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Applications Multimedia:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Applications nécessitant de lourds calculs (graphiques pour jeux, etc
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Nécessité de tirer parti des instructions les plus spécialisées du processeur
+ (ex.
+ SIMD, voir chap.
+ 11)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Virus
+\end_layout
+
+\begin_layout BeginFrame
+L'assembleur aujourd'hui
+\end_layout
+
+\begin_layout Itemize
+Plus employé pour le développement d'applications complètes
+\end_layout
+
+\begin_layout Itemize
+Employé pour certaines portions de code très précises nécessitant un optimisatio
+n fine
+\end_layout
+
+\begin_layout Itemize
+Intérêt pédagogoque: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Permet de mieux comprendre le fonctionnement du processeur
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+L'assembleur aujourd'hui
+\end_layout
+
+\begin_layout Itemize
+Etude de Steve McIntyre sur l'ASM en packages UBUNTU et FEDORA (2013)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://wiki.linaro.org/LEG/Engineering/OPTIM/Assembly
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+6% des packages UBUNTU contiennent de l'assembleur (pur ou inline)
+\end_layout
+
+\begin_layout Itemize
+Conclusion de McIntyre: dans la majorité de cas, l'emploi de l'ASM n'y est
+ pas indispensable
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document
