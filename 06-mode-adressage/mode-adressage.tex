@@ -64,8 +64,8 @@ Attention à ne pas confondre \emph{une adresse} et \emph{ce qu'elle contient}
 \bigskip
 D'ailleurs
 \begin{Asm}
-	MOV AX, 0xB8A0      ; Ne compile pas ! AX trop petit pour y mettre la valeur
-	MOV 0xB8A0, AX      ; Ne compile pas ! Pas d'immédiat à gauche.
+	MOV AL, 0xB8A0      ; Ne compile pas ! AL trop petit pour y mettre la valeur
+	MOV 0xB8A0, AL      ; Ne compile pas ! Pas d'immédiat à gauche.
 \end{Asm}
 \end{frame}
 
