@@ -173,6 +173,27 @@
 \end{frame}
 
 % ---------------------   FRAME   --------------------
+\begin{frame}[fragile]{Comment vérifier un codage ?}
+% ----------------------------------------------------
+
+  \begin{enumerate}
+  \item
+	Éditer un document minimal
+  \begin{Asm}
+	section .text
+	nop
+  \end{Asm}
+  \item
+	Compiler dans un format minimal (binaire DOS)\\
+	\asm{nasm -f bin prog.asm}
+  \item
+	Visualiser le contenu en hexadécimal\\
+	\asm{od -t x1 prog} ou encore \asm{hexdump -C prog}
+  \end{enumerate}
+	
+\end{frame}
+
+% ---------------------   FRAME   --------------------
 \begin{frame}[fragile]{Instruction avec une opérande immédiate}
 % ----------------------------------------------------
 
