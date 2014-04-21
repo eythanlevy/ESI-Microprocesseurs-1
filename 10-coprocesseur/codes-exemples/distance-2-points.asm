@@ -15,11 +15,13 @@ main:
 	FLD	tword [x2]	
 	FSUBP		
 	FLD st0
+	FMULP
 
 	FLD	tword [y1]	
 	FLD	tword [y2]	
 	FSUBP		
 	FLD st0
+	FMULP
 	
 	FADDP
 	FSQRT
