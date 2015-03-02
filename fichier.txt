@@ -5,4 +5,9 @@ Introduction à l’utilisation de git:
 - On ajoute ce fichier au projet (en local) via « add » , puis « commit »
 - On peut maintenant ajouter ce fichier au projet (à distance) via « push »
 
+- Noter que: après chaque modification de votre fichier il faut faire un « commit » avant d’effectuer un « push »
+
+- 
+
 Fin de la première leçon.
+
