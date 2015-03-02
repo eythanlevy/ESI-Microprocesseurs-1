@@ -1,3 +1,4 @@
+﻿ELV
 Introduction à l’utilisation de git:
 - On commence par installer git
 - On fait un clone du répertoire du projet distant (https://github.com/….)
