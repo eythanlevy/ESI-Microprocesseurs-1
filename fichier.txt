@@ -1,1 +1,8 @@
-dvzdpvosdpovsdpfovdf
+Introduction à l’utilisation de git:
+- On commence par installer git
+- On fait un clone du répertoire du projet distant (https://github.com/….)
+- On peut maintenant créer un fichier dans un répertoire (en local)
+- On ajoute ce fichier au projet (en local) via « add » , puis « commit »
+- On peut maintenant ajouter ce fichier au projet (à distance) via « push »
+
+Fin de la première leçon.
